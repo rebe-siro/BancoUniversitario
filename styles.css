@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Montserrat Alternates', sans-serif;
 }
 
 .location-bar {
@@ -37,21 +38,21 @@ body {
     padding: 20px;
 }
 .container {
-    height: 50px;
+    height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo {
-    width: 300px;
+    width: 250px;
     height: auto;
 }
 .nav-links a, .actions a {
     color: #0d5d60;
     text-decoration: none;
     font-size: 20px;
-    padding: 34px;
+    padding: 43px 25px;
     flex-grow: 1;
     text-align: center;
 }
@@ -72,7 +73,7 @@ body {
 .nav-links a:hover {
     background-color: #8282823b;
     color: #49BEB7;
-    padding: 34px;
+    padding: 45px 25px;
    /* border-radius: 5px; */
 }
 
@@ -109,4 +110,65 @@ body {
     border-radius: 50px;
     border: 1px solid #49BEB7;
     font-size: 14px;
+}
+
+.image-slider {
+    position: relative;
+    width: 1335px;
+    height: 576px;
+    overflow: hidden;
+}
+
+.slider-image {
+    position: absolute;
+    width: 1335px;
+    height: 576px;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slider-image:first-child {
+    opacity: 1;
+}
+
+.button-section {
+    grap: 10px;
+    display: flex;
+    justify-content: space-around;
+    margin: 50px 0;
+}
+
+.button-item {
+    width: 20%;
+    text-align: center;
+    border: 1px solid #000000;
+}
+
+.button-image {
+    width: 253px;
+    height: 163px;
+    object-fit: cover;
+}
+
+.button-item a {
+    text-decoration: none;
+    color: black;
+}
+
+.button-item:hover .button-image {
+    filter: grayscale(50%);
+}
+
+.button-item span {
+    display: block;
+    color: #085F63;
+    font-size: 18px;
+}
+
+.button-item span2 {
+    display: block;
+    color: #085F63;
+    font-size: 18px;
+    font-weight: bold;
 }
