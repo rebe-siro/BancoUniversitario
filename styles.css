@@ -4,8 +4,11 @@ body {
     font-family: 'Montserrat Alternates', sans-serif;
 }
 
+
+
+
 .location-bar {
-    background-color: #0d5d60; /* Color de fondo similar al de la imagen */
+    background-color: #0d5d60;
     padding: 10px 20px;
     display: flex;
     justify-content: flex-end;
@@ -37,6 +40,9 @@ body {
     background-color: #ffffff;
     padding: 20px;
 }
+
+
+
 .container {
     height: 70px;
     display: flex;
@@ -44,10 +50,17 @@ body {
     align-items: center;
 }
 
+
+
+
 .logo {
     width: 250px;
     height: auto;
 }
+
+
+
+
 .nav-links a, .actions a {
     color: #0d5d60;
     text-decoration: none;
@@ -76,6 +89,9 @@ body {
     padding: 45px 25px;
    /* border-radius: 5px; */
 }
+
+
+
 
 .search {
     display: flex;
@@ -112,16 +128,19 @@ body {
     font-size: 14px;
 }
 
+
+
+
 .image-slider {
     position: relative;
-    width: 1335px;
+    width: 100%;
     height: 576px;
     overflow: hidden;
 }
 
 .slider-image {
     position: absolute;
-    width: 1335px;
+    width: 100%;
     height: 576px;
     object-fit: cover;
     opacity: 0;
@@ -132,11 +151,14 @@ body {
     opacity: 1;
 }
 
+
+
+
 .button-section {
-    grap: 10px;
     display: flex;
     justify-content: space-around;
-    margin: 50px 0;
+    margin: 50px 100px;
+    gap: 10px;
 }
 
 .button-item {
@@ -146,8 +168,10 @@ body {
 }
 
 .button-image {
-    width: 253px;
-    height: 163px;
+    width: 177px;
+    height: 114px;
+    margin-top: 5%;
+    align-items: center;
     object-fit: cover;
 }
 
@@ -156,8 +180,8 @@ body {
     color: black;
 }
 
-.button-item:hover .button-image {
-    filter: grayscale(50%);
+.button-item:hover {
+    filter: grayscale(100%);
 }
 
 .button-item span {
@@ -171,4 +195,177 @@ body {
     color: #085F63;
     font-size: 18px;
     font-weight: bold;
+    margin-bottom: 5%;
+}
+
+.image-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 20px 0;
+    margin-left: 15%;
+}
+
+.image-item {
+    width: 507px;
+    height: 279px;
+    text-align: center;
+    margin-bottom: 4%;
+    margin-right: 2%;
+}
+
+.image-box {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.button-inside {
+    display: block;
+    background-color: #0d5d60;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.button-inside:hover {
+    background-color: #49BEB7;
+}
+
+
+
+
+.help-section {
+    background-color: #49BEB7;
+    height: 395px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.help-content {
+    text-align: center;
+    color: white;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+
+.help-icon {
+    font-size: 50px;
+    margin-bottom: -20px;
+}
+
+.help-content h2 {
+    font-size: 40px;
+    margin-bottom: -5px;
+}
+
+.help-content p {
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+.help-button {
+    background-color: white;
+    color: #1abc9c;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 24px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.help-button:hover {
+    background-color: #16a085;
+    color: white;
+}
+
+
+
+
+.footer {
+    background-color: #f1f1f1;
+    height: 20px;
+    text-align: left;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+    margin: 3%;
+}
+
+.footer-links div {
+    width: 18%;
+}
+
+.footer-links h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.footer-links a {
+    color: #666;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.footer-links a:hover {
+    color: #1abc9c;
+}
+
+.footer-bottom {
+    border-top: 3px solid #ddd;
+    text-align: center;
+    padding: 3%;
+}
+
+.footer-bottom p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 3%;
+}
+
+
+
+.social-footer {
+    background-color: #1abc9c;
+    padding: 25px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rif {
+    align: left;
+    font-size: 18px;
+    color: white;
+}
+
+.footer-logo {
+    width: 250px;
+    height: auto;
+    margin-bottom: 1%;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.social-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
 }
