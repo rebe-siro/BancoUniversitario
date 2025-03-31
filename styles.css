@@ -1,38 +1,112 @@
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
+}
+
+.location-bar {
+    background-color: #0d5d60; /* Color de fondo similar al de la imagen */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.location-bar a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.location-bar a:hover {
+    text-decoration: underline;
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px;
+}
+.container {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 300px;
+    height: auto;
+}
+.nav-links a, .actions a {
+    color: #0d5d60;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 34px;
+    flex-grow: 1;
     text-align: center;
 }
 
-header {
-    background-color: #6200ea;
-    color: white;
-    padding: 1rem 0;
+.nav-links a {
+    background-color: white;
+    color: black;
+   /* border: 2px solid #0d5d60; */
+    margin: 0;
+   /* border-radius: 5px; */
 }
 
-main {
-    margin: 2rem 1rem;
+.nav-links a:hover {
+    background-color: #f0f0f0;
+    color: #0d5d60;
 }
 
-button {
-    background-color: #03dac6;
-    color: #fff;
+.nav-links a:hover {
+    background-color: #8282823b;
+    color: #49BEB7;
+    padding: 34px;
+   /* border-radius: 5px; */
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search input {
+    padding: 5px;
+    font-size: 14px;
+}
+
+.search button {
     border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
+    padding: 5px 10px;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #018786;
+
+.actions .buttonBL {
+    background-color: #49BEB7;
+    color: white;
+    padding: 10px 50px;
+    border-radius: 50px;
+    font-size: 14px;
 }
 
-footer {
-    margin-top: 2rem;
-    padding: 1rem 0;
-    background-color: #6200ea;
-    color: white;
+.actions .buttonNotc {
+    background-color: white;
+    color:  #49BEB7;
+    padding: 10px 50px;
+    border-radius: 50px;
+    border: 1px solid #49BEB7;
+    font-size: 14px;
 }

@@ -3,20 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página Web</title>
+    <title>Banco Universitario</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>¡Bienvenidos a mi página web!</h1>
-    </header>
-    <main>
-        <p id="saludo">Haz clic en el botón para un mensaje especial:</p>
-        <button onclick="mostrarMensaje()">Clic Aquí</button>
-    </main>
-    <footer>
-        <p>Creado por Rebe</p>
-    </footer>
-    <script src="script.js"></script>
+    
+    <div class="location-bar">
+        <a href="https://maps.app.goo.gl/hbUCCk2eKTuFqDg3A" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" alt="Ubicación" class="icon">
+            Ubícanos
+        </a>
+    </div>
+
+    <div class="header">
+        <div class="container"></div>
+        <a href="https://maps.app.goo.gl/hbUCCk2eKTuFqDg3A" target="_blank">
+            <img src="logo-no-background.png" class="logo">
+        </a>
+            <div class="nav-links">
+                <a href="/personas">Personas</a>
+                <a href="/empresas">Empresas</a>
+            </div>
+            <div class="search">
+                <button><img src="https://cdn-icons-png.flaticon.com/128/49/49116.png" class="icon"></button>
+                <input type="text" placeholder="Buscar">
+                
+            </div>
+            <div class="actions">
+                <a href="/banca-en-linea" class="buttonBL">Banca en línea</a>
+                <a href="/noticias" class="buttonNotc">Noticias</a>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
