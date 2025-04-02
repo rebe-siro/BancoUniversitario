@@ -6,6 +6,11 @@
     <title>Banco Universitario</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+
 </head>
 <body>
 
@@ -69,7 +74,7 @@
             </a>
         </div>
         <div class="button-item">
-            <a href="/facilidad-pagos-tarjetas">
+            <a href="facilidad-pagos.html" class="transition-link">
                 <img src="GRAFICO/7-4.png" alt="Facilidad de pagos Tarjetas" class="button-image">
                 <span>Facilidad de pagos</span>
                 <span2>Tarjetas</span2>
@@ -147,7 +152,7 @@
                 <h3>Información</a></h3>
                 <ul>
                     <li><a href="/limites-diarios">Límites diarios</a></li>
-                    <li><a href="/calendario-bancario">Calendario bancario</a></li>
+                    <li><a href="facilidad-pagos.html" class="transition-link">Tarjetas</a></li>
                 </ul>
             </div>
             <div>
@@ -193,7 +198,26 @@
     </footer>
 
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const links = document.querySelectorAll(".transition-link");
+            const loader = document.querySelector(".loader-container");
+        
+            links.forEach(link => {
+                link.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const href = this.getAttribute("href");
+        
 
+                    loader.classList.add("active");
+        
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 550);
+                });
+            });
+        });
+        </script>
     <script src="script.js"></script>
 </body>
 </html>

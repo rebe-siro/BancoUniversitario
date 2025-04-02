@@ -7,7 +7,44 @@ body {
     font-family: 'Montserrat Alternates', sans-serif;
 }
 
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
 
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #49BEB7;
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loader-container.active {
+    visibility: visible;
+    opacity: 1;
+}
 
 
 .location-bar {
@@ -611,5 +648,243 @@ body {
 
 
 /*  FACILIDAD DE PAGOS   */
+.tarjetas-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1377px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 10px;
+}
+
+.tarjeta-box {
+    position: relative;
+    width: 28%;
+    height: 220px;
+    border: 1px solid #000;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.primera {
+    background-color: #085F63;
+    color: white;
+    border: none;
+}
+
+.tarjeta-texto {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.tarjeta-texto p {
+    color: #0d5c5c;
+}
+
+.tarjeta-texto pB {
+    color: #ffffff;
+}
 
 
+.tarjeta-img {
+    width: 160px;
+    align-self: last baseline;
+    transition: transform 0.3s ease-in-out;
+}
+
+.tarjeta-box:hover .tarjeta-img {
+    transform: scale(1.1);
+}
+
+@media (max-width: 900px) {
+    .tarjeta-box {
+        width: 30%;
+        height: 180px;
+        padding: 15px;
+    }
+
+    .tarjeta-texto {
+        font-size: 16px;
+    }
+
+    .tarjeta-img {
+        width: 130px;
+    }
+
+    .tarjeta-texto pB {
+        font-size: 14px;
+    }
+
+    
+}
+
+@media (max-width: 600px) {
+    .tarjeta-box {
+        width: 32%;
+        height: 150px;
+        padding: 10px;
+    }
+
+    .tarjeta-texto {
+        font-size: 14px;
+    }
+
+    .tarjeta-img {
+        width: 110px;
+    }
+}
+
+@media (max-width: 412px) {
+    .tarjetas-container {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .tarjeta-box {
+        width: 32%;
+        height: 130px;
+        padding: 8px;
+    }
+    .tarjeta-texto pB {
+        font-size: 10px;
+    }
+
+    .tarjeta-texto {
+        font-size: 12px;
+    }
+
+    .tarjeta-img {
+        width: 90px;
+    }
+
+    .tarjeta-texto h3 {
+        font-size: 9px;
+    }
+
+    .tarjeta-texto h2 {
+        font-size: 14px;
+    }
+}
+
+
+.contendB {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+.card-containerT {
+    margin: 4%;
+    width: 90%;
+    max-width: 1377px;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.headerT {
+    display: flex;
+    border-bottom: 2px solid #ddd;
+}
+
+.headerT-item {
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+}
+
+.headerT-item.active {
+    background-color: #49BEB7;
+    color: white;
+}
+
+.contentT {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+.user-image {
+    max-width: 300px;
+    margin-right: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+/* --- RESPONSIVE: Ajuste para pantallas más pequeñas --- */
+@media (max-width: 900px) {
+    .user-image {
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 600px) {
+    .card-containerT {
+        padding: 15px;
+    }
+
+    .contentT {
+        gap: 10px;
+    }
+
+    .user-image {
+        max-width: 220px;
+        margin-right: 10px;
+    }
+
+    .headerT-item {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 412px) {
+    .contendB {
+        height: auto;
+        padding: 10px;
+    }
+
+    .card-containerT {
+        width: 100%;
+        margin: 0;
+        padding: 10px;
+    }
+
+    .headerT-item {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .contentT {
+        gap: 5px;
+        padding: 10px;
+    }
+
+    .user-image {
+        max-width: 180px;
+        margin-right: 5px;
+    }
+
+    ul li {
+        font-size: 12px;
+    }
+}

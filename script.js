@@ -10,3 +10,19 @@ function changeImage() {
 }
 
 setInterval(changeImage, 5000);
+
+document.addEventListener("DOMContentLoaded", () => {
+    const tarjetas = document.querySelectorAll(".tarjeta-box");
+
+    tarjetas.forEach(tarjeta => {
+        tarjeta.addEventListener("mouseenter", () => {
+            tarjeta.classList.add("hover");
+        });
+
+        tarjeta.addEventListener("mouseleave", () => {
+            tarjeta.classList.remove("hover");
+        });
+    });
+});
+
+
