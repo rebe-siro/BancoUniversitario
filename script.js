@@ -3,6 +3,7 @@ function mostrarMensaje() {
     saludo.textContent = '¡Gracias por visitar mi página!';
 }
 
+
 // FUNCIONES LOGIN
 
 document.getElementById('loginForm').addEventListener('submit', function(e) {
@@ -43,4 +44,3 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 
 
  
-  
