@@ -184,7 +184,7 @@ label {
     100% { background-position: 0% 50%; }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 412px) {
     .gradient-view::before {
         animation: none; /* Desactiva animación en móvil si pesa mucho */
     }
@@ -599,26 +599,28 @@ label {
 }
 
 .mision-vision {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 20px 15px;
+    overflow-x: hidden; 
+    box-sizing: border-box; 
 }
 
 /* Encabezado */
 .header-section {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .header-section h1 {
-    font-size: 2.5rem;
+    font-size: 1.8rem; 
     color: #2c3e50;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .divider {
-    width: 50%;
-    height: 7px;
+    width: 100px; 
+    height: 4px; 
     background-color: #0d5d60;
     margin: 0 auto;
     border-radius: 2px;
@@ -628,99 +630,147 @@ label {
 .card {
     background: rgba(0, 0, 0, 0.199);
     border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 30px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     text-align: center;
-    transition: transform 0.3s ease;
+    width: 100%; 
+    box-sizing: border-box;
 }
 
-
 .card:hover {
-    transform: translateY(-5px);
+    transform: none; 
 }
 
 .icon-container {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 20px;
+    width: 80px; 
+    height: 80px; 
+    margin: 0 auto 15px;
     background-color: #e8f5e9;
     border: 1px solid black;
-    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.705);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra más sutil */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    
-    
-    
 }
-
 
 .card h2 {
     color: #2c3e50;
-    margin-bottom: 15px;
-    font-size: 1.8rem;
+    margin-bottom: 10px;
+    font-size: 1.4rem; 
 }
 
 .card p {
     color: #555;
-    font-size: 1.3rem;
+    font-size: 1rem; 
+    line-height: 1.5;
+    padding: 0 10px; 
 }
 
 /* Objetivos */
 .objetivos {
     background: rgb(255, 255, 255);
     border-radius: 10px;
-    padding: 40px;
-    margin-top: 30px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .objetivos h1 {
     text-align: center;
     color: #2c3e50;
-    margin-bottom: 30px;
-    font-size: 3rem;
+    margin-bottom: 20px;
+    font-size: 1.8rem; 
 }
 
 .objetivos-list {
     list-style: none;
+    padding: 0 10px;
 }
 
 .objetivos-list li {
     display: flex;
-    gap: 20px;
-    margin-bottom: 30px;
-    align-items: flex-start;
+    flex-direction: column; 
+    margin-bottom: 25px;
+    align-items: center; 
+    text-align: center;
 }
 
 .objetivo-icon {
-    font-size: 2rem;
+    font-size: 1.5rem;
     background: #e8f5e9;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    color: #4CAF50;
+    margin-bottom: 10px;
 }
-
-
 
 .objetivos-list h3 {
     color: #2c3e50;
-    margin-bottom: 8px;
-    font-size: 1.6rem;
+    margin-bottom: 5px;
+    font-size: 1.2rem; 
 }
 
 .objetivos-list p {
     color: #555;
-    font-size: 1.4rem;
+    font-size: 1rem; 
+    line-height: 1.4;
+}
+
+/* Media Query para pantallas más grandes */
+@media (min-width: 768px) {
+    .mision-vision {
+        padding: 40px 20px;
+    }
+    
+    .header-section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .card {
+        padding: 30px;
+    }
+    
+    .card h2 {
+        font-size: 1.8rem;
+    }
+    
+    .card p {
+        font-size: 1.3rem;
+    }
+    
+    .objetivos-list li {
+        flex-direction: row; /* Vuelve a fila en desktop */
+        text-align: left;
+        align-items: flex-start;
+    }
+    
+    .objetivo-icon {
+        margin-bottom: 0;
+    }
+}
+
+
+@media (max-width: 412px) {
+    .nav-links {
+        gap: 10px;
+    }
+    
+    .footer-links {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 413px) {
+    body {
+        font-size: 16px;
+    }
 }
 
 .footer {
@@ -904,7 +954,7 @@ img{
     align-items: flex-start;
     text-align: left;
     padding: 40px 5% 40px 60px; 
-    margin-top: 10px; 
+    margin-top: 30px; 
     margin-bottom: 30px; 
     background-color: #085F63;
     color: white;
@@ -925,7 +975,7 @@ img{
     max-width: 600px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 412px) {
     .container-infoPrincipal {
         padding: 25px 5% 25px 30px;
         margin-top: 50px;
@@ -933,7 +983,7 @@ img{
 }
  
 
-@media (max-width: 720px){
+@media (max-width: 412px){
 
     .image-container {
         img {
@@ -941,14 +991,13 @@ img{
         }    
     }
 
- 
 
     .gradient-view::before {
-        animation: none; /* Desactiva animación en móvil si pesa mucho */
+        animation: none; 
     }
 
     .container-infoPrincipal {
-        padding: 30px 5% 30px 50px; /* Menos padding en móvil */
+        padding: 30px 5% 30px 50px; 
         margin-top: 60px;
     }
     
@@ -1057,30 +1106,32 @@ img{
     opacity: 1;
 }
 
+
+
 /* LIMITES DIARIOS */
 .contenido-desplegable {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
-    padding: 0 1.5rem;
+    padding: 0 1rem;
 }
 
 .contenido-desplegable.mostrar {
-    padding: 1.5rem;
+    padding: 1rem;
 }
-/* TRANSFERENCIAS */
 
+/* TRANSFERENCIAS */
 .transferencias-container {
     max-width: 800px;
     margin: 10px 5%;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .acordeon-principal {
     width: 100%;
-    padding: 1.5rem;
+    padding: 1rem;
     background-color: #085F63;
     color: white;
     border: none;
@@ -1092,13 +1143,14 @@ img{
 
 .acordeon-principal h1 {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.2rem; /* Tamaño base reducido */
+    font-weight: 600;
 }
 
 .contenido-desplegable {
     display: none;
-    padding: 1.3rem;
-    background-color: #88868638;
+    padding: 1rem;
+    background-color: rgba(136, 134, 134, 0.22);
 }
 
 .contenido-desplegable.mostrar {
@@ -1106,18 +1158,22 @@ img{
 }
 
 .seccion-transferencia {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .seccion-transferencia h3 {
     color: #0d5d60;
     margin-bottom: 0.5rem;
+    font-size: 1rem; /* Reducido para móvil */
+    font-weight: 600;
 }
 
 .seccion-transferencia p {
     margin: 0.3rem 0;
     padding-left: 1rem;
     position: relative;
+    font-size: 0.9rem; /* Reducido para móvil */
+    line-height: 1.4;
 }
 
 .seccion-transferencia p:before {
@@ -1125,29 +1181,71 @@ img{
     color: #49BEB7;
     position: absolute;
     left: 0;
+    font-weight: bold;
 }
 
 .acordeon-icono {
-    font-size: 1.5rem;
-    transition: transform 0.3s;
+    font-size: 1.2rem; /* Reducido para móvil */
+    transition: transform 0.3s ease;
 }
 
 .acordeon-icono.girar {
     transform: rotate(45deg);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .titulo-principal {
-        font-size: 1.6rem;
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 412px) {
+    .transferencias-container {
+        margin: 10px 10px;
+        width: calc(100% - 20px);
+        
     }
     
-    .acordeon-titulo {
-        padding: 1rem;
-        font-size: 1rem;
+    .acordeon-principal {
+        padding: 0.8rem;
     }
     
-    .lista-transferencias {
-        padding: 1rem;
+    .acordeon-principal h1 {
+        font-size: 1.1rem; /* Más pequeño en móviles */
+    }
+    
+    .contenido-desplegable {
+        padding: 0.8rem;
+    }
+    
+    .seccion-transferencia h3 {
+        font-size: 0.95rem; /* Ajuste fino */
+    }
+    
+    .seccion-transferencia p {
+        font-size: 0.85rem; /* Ajuste fino */
+        padding-left: 0.8rem;
+    }
+    
+    .acordeon-icono {
+        font-size: 1.1rem;
+    }
+
+    .acordeon-principal h1,
+    .seccion-transferencia h3,
+    .seccion-transferencia p {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+}
+
+/* Versión para pantallas más grandes */
+@media (min-width: 768px) {
+    .acordeon-principal h1 {
+        font-size: 1.5rem; /* Tamaño original en desktop */
+    }
+    
+    .seccion-transferencia h3 {
+        font-size: 1.2rem; /* Tamaño original en desktop */
+    }
+    
+    .seccion-transferencia p {
+        font-size: 1rem; /* Tamaño original en desktop */
     }
 }
