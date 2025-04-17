@@ -285,7 +285,7 @@ body {
 }
 
 
-.button-section {
+.button-sectionR {
     display: flex;
     justify-content: space-around;
  
@@ -293,7 +293,7 @@ body {
     gap: 0px;
 }
 
-.button-item {
+.button-itemR {
     width: 20%;
     text-align: center;
     border: 1px solid #ccc;
@@ -301,31 +301,31 @@ body {
     transition: 0.3s;  
 }
 
-.button-image {
+.button-imageR {
     width: 100%;
     max-width: 177px;
     height: 114px;
     margin-top: 5%;
-    align-items: center;
+    margin-left: 15%;
     object-fit: cover;
 }
 
-.button-item a {
+.button-itemR a {
     text-decoration: none;
     color: black;
 }
 
-.button-item:hover {
+.button-itemR:hover {
     filter: grayscale(100%);
 }
 
-.button-item span {
+.button-itemR span {
     display: block;
     color: #085F63;
     font-size: 18px;
 }
 
-.button-item span2 {
+.button-itemR span2 {
     display: block;
     color: #085F63;
     font-size: 18px;
@@ -333,7 +333,7 @@ body {
     margin-bottom: 5%;
 }
 @media screen and (max-width: 412px) {
-    .button-section {
+    .button-sectionR {
         display: grid;
         grid-template-columns: repeat(2, 1fr);  
         gap: 10px;                              
@@ -341,7 +341,7 @@ body {
     }
     
     
-    .button-item {
+    .button-itemR {
         width: 100%;                            
         max-width: 180px;                       
         height: auto;
@@ -351,13 +351,13 @@ body {
         transition: 0.3s;
     }
 
-    .button-image {
+    .button-imageR {
         width: 100%;
         max-width: 100px;                      
         height: auto;
     }
 
-    .button-item span, .button-item span2 {
+    .button-itemR span, .button-itemR span2 {
         font-size: 16px;                       
     }
 }
