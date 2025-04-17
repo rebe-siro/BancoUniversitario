@@ -137,7 +137,7 @@ label {
 
 /* Contenedor de imagen */
 .image-container {
-    background-image: url("GRAFICO2/girLogin.png");
+    background-image: url("GRAFICO/girLogin.png");
     background-size: cover;
     background-position: center;
     height: 550px;
