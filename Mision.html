@@ -14,38 +14,41 @@
     <link rel="stylesheet" href="styleBTT.css">
     <link rel="icon" href="GRAFICO/mancha.png" type="image/x-icon">
 
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+
 </head>
 <body>
 
     
     <div class="location-bar">
         <a href="https://maps.app.goo.gl/hbUCCk2eKTuFqDg3A" target="_blank">
-            <img src="GRAFICO/23.png" alt="Ubicación" class="icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" alt="Ubicación" class="icon">
             Ubícanos
         </a>
-    </div> <br>
+    </div>
 
-
-    <div class="header">
-            <a href="index.html" target="_blank">
+        <div class="header">
+            <div class="container"></div>
+            <a href="index.html" target="_blank" class="transition-link">
                 <img src="GRAFICO/logo-no-background.png" class="logo">
             </a>
                 <div class="nav-links">
-                    <a href="/personas">Personas</a>
-                    <a href="/empresas">Empresas</a>
+                    <a href="facilidad-pagos.html" class="transition-link">Servicios</a>
+                    <a href="Mision.html" class="transition-link">Sobre nosotros</a>
                 </div>
-                
-                <div class="search">
-                    <button><img src="https://cdn-icons-png.flaticon.com/128/49/49116.png" class="icon"></button>
-                    <input type="text" placeholder="Buscar">
-                    
-                </div>
+            <div class="search">
+                    <button><img src="https://cdn-icons-png.flaticon.com/128/49/49116.png" id="searchBtn" class="icon"></button>
+                </button>
+                <input type="text" id="searchInput" placeholder="Buscar">
+            </div>
                 <div class="actions">
-                    <a href="Login.html" class="buttonBL">Banca en línea</a>
-                    <a href="/noticias" class="buttonNotc">Noticias</a>
+                    <a href="Login.html" class="buttonBL transition-link">Banca en línea</a>
+                    <a href="/Inscribirse" class="buttonNotc transition-link">Registrarse</a>
                 </div>
-            
-    </div>
+            </div>
+        </div>
     
         
         <div class="container-infoPrincipal">
@@ -113,74 +116,94 @@
 </section>
 
 
-    <div class="footer">
-        <div class="footer-links">
-            <div>
-                <h3>Corporativo</a></h3>
-                <ul>
-                    <li><a href="/somos">Somos Banco Universitario</a></li>
-                    <li><a href="/sala-de-noticias">Sala de Noticias</a></li>
-                    <li><a href="/solicitud-de-empleo">Solicitud de empleo</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3>Atención al cliente</a></h3>
-                <ul>
-                    <li><a href="/sede">Sede</a></li>
-                    <li><a href="/requerimientos-y-reclamos">Requerimientos y reclamos</a></li>
-                    <li><a href="/contactamos">Contáctanos</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3>Información</a></h3>
-                <ul>
-                    <li><a href="LimitesDiarios.html">Límites diarios</a></li>
-                    <li><a href="/calendario-bancario">Calendario bancario</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3>Tasas y tarifas</a></h3>
-                <ul>
-                    <li><a href="/tasas-activas">Tasas activas</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3>Seguridad</a></h3>
-                <ul>
-                    <li><a href="/gestion-de-claves">Gestión de claves</a></li>
-                    <li><a href="/informacion-personal">Información personal</a></li>
-                </ul>
-            </div>
+<footer class="footer">
+    <div class="footer-links">
+        <div>
+            <h3>Corporativo</h3>
+            <ul>
+                <li><a href="Mision.html" class="transition-link">Somos Banco Universitario</a></li>
+                <li><a href="Noticias.html" class="transition-link">Sala de Noticias</a></li>
+            </ul>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; Banco Universitario de Crédito, C.A. 2025. Todos los derechos reservados. Navegadores recomendados para óptima visualización: Chrome y Firefox.</p>
+        <div>
+            <h3>Atención al cliente</h3>
+            <ul>
+                <li><a href="https://wa.me/message/6KDICSFNLV54P1" class="transition-link">Reclamos</a></li>
+                <li><a href="Conctacto.html" class="transition-link">Contáctanos</a></li>
+            </ul>
         </div>
-
-
-        <footer class="social-footer">
-            <a href="https://maps.app.goo.gl/hbUCCk2eKTuFqDg3A" target="_blank">
-                <img src="GRAFICO/logo-no-background-01.png" class="footer-logo">
-            </a>
-            <p class="rif">RIF: J018082003-05</p>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/rebecafernanda.silva.5/" target="_blank">
-                    <img src="GRAFICO/35.png" alt="Facebook" class="social-icon">
-                </a>
-                <a href="https://www.twitter.com" target="_blank">
-                    <img src="GRAFICO/33.png" alt="Twitter" class="social-icon">
-                </a>
-                <a href="https://www.instagram.com/rebecasiro18/" target="_blank">
-                    <img src="GRAFICO/34.png" alt="Instagram" class="social-icon">
-                </a>
-                <a href="https://www.linkedin.com" target="_blank">
-                    <img src="GRAFICO/32.png" alt="LinkedIn" class="social-icon">
-                </a>
-            </div>
-        </footer>
-
+        <div>
+            <h3>Información</h3>
+            <ul>
+                <li><a href="LimitesDiarios.html" class="transition-link">Límites diarios</a></li>
+                <li><a href="facilidad-pagos.html" class="transition-link">Tarjetas</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>Tasas y tarifas</h3>
+            <ul>
+                <li><a href="LimitesDiarios.html" class="transition-link">Actividad</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>Seguridad</h3>
+            <ul>
+                <li><a href="/gestion-de-claves" class="transition-link">Gestión de claves</a></li>
+                <li><a href="/informacion-personal" class="transition-link">Información personal</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; Banco Universitario de Crédito, C.A. 2025. Todos los derechos reservados. Navegadores recomendados para óptima visualización: Chrome y Firefox.</p>
     </div>
 
-    <script src="scriptBTT.js" defer></script>
+    <div class="social-footer">
+        <a href="index.html" target="_blank" class="transition-link">
+            <img src="GRAFICO/logo-no-background-01.png" class="footer-logo">
+        </a>
+        <p class="rif">+58 212-555-5555</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/rebecafernanda.silva.5/" target="_blank" class="transition-link">
+                <img src="GRAFICO/35.png" alt="Facebook" class="social-icon">
+            </a>
+            <a href="https://www.twitter.com" target="_blank" class="transition-link">
+                <img src="GRAFICO/33.png" alt="Twitter" class="social-icon">
+            </a>
+            <a href="https://www.instagram.com/rebecasiro18/" target="_blank" class="transition-link">
+                <img src="GRAFICO/34.png" alt="Instagram" class="social-icon">
+            </a>
+            <a href="https://www.linkedin.com" target="_blank" class="transition-link">
+                <img src="GRAFICO/32.png" alt="LinkedIn" class="social-icon">
+            </a>
+        </div>
+    </div>
+
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll(".transition-link");
+        const loader = document.querySelector(".loader-container");
+    
+        links.forEach(link => {
+            link.addEventListener("click", function (event) {
+                event.preventDefault();
+                const href = this.getAttribute("href");
+    
+
+                loader.classList.add("active");
+    
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 550);
+            });
+        });
+    });
+    </script>
+
+    <script src="script.js"></script>
+    <script src="scriptBTT.js"></script>
+    <script src="scriptInput.js"></script>
     <a href="#top" class="back-to-top" id="backToTop">↑</a>
 </body>
 </html>
