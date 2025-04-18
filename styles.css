@@ -448,6 +448,13 @@ body {
     margin-bottom: 2%;
 }
 
+.help-contentR {
+    text-align: center;
+    color: white;
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+
 .help-iconR {
     font-size: 50px;
     margin-bottom: -20px;
