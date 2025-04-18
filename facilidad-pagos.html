@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="styleBTT.css">
     <link rel="icon" href="GRAFICO/mancha.png" type="image/x-icon">
+
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
 </head>
 
 <body>
@@ -20,72 +24,40 @@
         </a>
     </div>
 
-
-    <div class="header">
-        <div class="container"></div>
-        <a href="https://maps.app.goo.gl/hbUCCk2eKTuFqDg3A" target="_blank">
-            <img src="GRAFICO/logo-no-background.png" class="logo">
-        </a>
-            <div class="nav-links">
-                <a href="/personas">Personas</a>
-                <a href="/empresas">Empresas</a>
-            </div>
+        <div class="header">
+            <div class="container"></div>
+            <a href="index.html" target="_blank" class="transition-link">
+                <img src="GRAFICO/logo-no-background.png" class="logo">
+            </a>
+                <div class="nav-links">
+                    <a href="facilidad-pagos.html" class="transition-link">Servicios</a>
+                    <a href="Mision.html" class="transition-link">Sobre nosotros</a>
+                </div>
             <div class="search">
-                <button><img src="https://cdn-icons-png.flaticon.com/128/49/49116.png" class="icon"></button>
-                <input type="text" placeholder="Buscar">
-                
+                <button><img src="https://cdn-icons-png.flaticon.com/128/49/49116.png" id="searchBtn" class="icon"></button>
             </div>
-            <div class="actions">
-                <a href="/banca-en-linea" class="buttonBL">Banca en línea</a>
-                <a href="/noticias" class="buttonNotc">Noticias</a>
+                <div class="actions">
+                    <a href="Login.html" class="buttonBL transition-link">Banca en línea</a>
+                    <a href="/Inscribirse" class="buttonNotc transition-link">Registrarse</a>
+                </div>
             </div>
         </div>
-    </div>
 
-
-    <div class="tarjetas-container">
-        <div class="tarjeta-box primera">
-            <div class="tarjeta-texto">
-                <h3>Mi primera tarjeta de<br>Crédito Universitario Visa</h3>
-                <pB>Solicitar aquí</pB>
-            </div>
-            <img src="GRAFICO/15.png" alt="Tarjeta Universitaria" class="tarjeta-img">
-        </div>
-
-        <div class="tarjeta-box">
-            <div class="tarjeta-texto">
-                <h2>Visa Dorada</h2>
-                <p>Solicitar aquí</p>
-            </div>
-            <img src="GRAFICO/16.png" alt="Visa Dorada" class="tarjeta-img">
-        </div>
-
-        <div class="tarjeta-box">
-            <div class="tarjeta-texto">
-                <h2>Visa Singular</h2>
-                <p>Solicitar aquí</p>
-            </div>
-            <img src="GRAFICO/14.png" alt="Visa Singular" class="tarjeta-img">
-        </div>
-    </div>
-
-
-    <contendB>
+    
+    <div>
         <div class="card-containerT">
             <div class="headerT">
                 <div class="headerT-item active">Beneficios</div>
-                <div class="headerT-item">Con la tarjeta podrás</div>
+                <div class="headerT-item">Servicios</div>
                 <div class="headerT-item">Requisitos</div>
             </div>
             <div class="contentT">
                 <img src="GRAFICO/17.png" alt="Joven con celular" class="user-image">
                 <ul>
-                    <li>Para jóvenes entre 18 y 20 años.</li>
-                    <li>Aceptación en todas las universidades a nivel nacional.</li>
-                    <li>Avances de efectivo.</li>
+                    <li>Facilita el intercambio de dinero entre estudiantes universitarios de forma eficiente.</li>
+                    <li>Permite a los estudiantes contar con una alternativa más para realizar sus pagos.</li>
+                    <li>Brinda la tranquilidad de realizar retiros de efectivo de manera rápida y segura.</li>
                     <li>Atención telefónica las 24 horas del día, los 365 del año.</li>
-                    <li>Comodidad para gestionar y reportar casos o requerimientos.</li>
-                    <li>Servicio de mensajería de texto Banco para informarte sobre los movimientos realizados con tu tarjeta.</li>
                 </ul>
             </div>
         </div>
@@ -93,15 +65,18 @@
         <div class="card-containerT">
             <div class="headerT">
                 <div class="headerT-item">Beneficios</div>
-                <div class="headerT-item active">Con la tarjeta podrás</div>
+                <div class="headerT-item active">Servicios</div>
                 <div class="headerT-item">Requisitos</div>
             </div>
             <div class="contentT">
                 <img src="GRAFICO/4.png" alt="Joven feliz" class="user-image">
                 <ul>
                     <li>Consulta saldos, movimientos y estados de cuenta a través de UniversitarioOnline y UniversitarioMóvil.</li>
-                    <li>Realizar Avances de Efectivo en Cajeros Automáticos o a través de la Banca Telefónica.</li>
-                    <li>La tarjeta se entrega activa y lista para usarla, al momentos de retirarla en la Agencia.</li>
+                    <li>El Banco Universitario ofrece transferencias entre estudiantes sin generar comisiones.</li>
+                    <li>Los estudiantes pueden realizar depósitos en efectivo de forma sencilla en sucursales.</li>
+                    <li>Se permiten retiros en efectivo de manera rápida y segura en las sucursales del banco.</li>
+                    <li>Ofrecen el servicio de pago de matrícula estudiantil de forma rápida y sencilla en línea.</li>
+                    <li>Los estudiantes universitarios pueden cobrar sus becas de manera sencilla y eficiente.</li>
                 </ul>
             </div>
         </div>
@@ -109,7 +84,7 @@
         <div class="card-containerT">
             <div class="headerT">
                 <div class="headerT-item">Beneficios</div>
-                <div class="headerT-item">Con la tarjeta podrás</div>
+                <div class="headerT-item">Servicios</div>
                 <div class="headerT-item active">Requisitos</div>
             </div>
             <div class="contentT">
@@ -118,23 +93,22 @@
                     <li>Poseer o abrir una Cuenta Universitario.</li>
                     <li>Completar la solicitud.</li>
                     <li>Leer los términos y condiciones.</li>
-                    <li>Planilla de solicitud de Tarjeta adicional.</li>
+                    <li>Planilla de solicitud.</li>
                     <li>Cargos y tarifas.</li>
-                    <li>Tasas.</li>
                 </ul>
             </div>
         </div>
         
-    </contendB>
+    </div>
     
     <div class="help-section">
         <div class="help-content">
-            <div class="help-icon">
-                <i><img src="https://cdn-icons-png.flaticon.com/128/545/545684.png"></i>
+            <div class="help-iconR">
+                <img src="https://cdn-icons-png.flaticon.com/128/545/545684.png">
             </div>
             <h2>¿Necesitas ayuda?</h2>
             <p>Estamos aquí para ayudarte</p>
-            <a href="/contacto" class="help-button">Contáctanos</a>
+            <a href="Conctacto.html" class="help-button transition-link">Contáctanos</a>
         </div>
     </div>
 
@@ -142,39 +116,37 @@
     <footer class="footer">
         <div class="footer-links">
             <div>
-                <h3>Corporativo</a></h3>
+                <h3>Corporativo</h3>
                 <ul>
-                    <li><a href="/somos">Somos Banco Universitario</a></li>
-                    <li><a href="/sala-de-noticias">Sala de Noticias</a></li>
-                    <li><a href="/solicitud-de-empleo">Solicitud de empleo</a></li>
+                    <li><a href="Mision.html" class="transition-link">Somos Banco Universitario</a></li>
+                    <li><a href="Noticias.html" class="transition-link">Sala de Noticias</a></li>
                 </ul>
             </div>
             <div>
-                <h3>Atención al cliente</a></h3>
+                <h3>Atención al cliente</h3>
                 <ul>
-                    <li><a href="/sede">Sede</a></li>
-                    <li><a href="/requerimientos-y-reclamos">Requerimientos y reclamos</a></li>
-                    <li><a href="/contactamos">Contáctanos</a></li>
+                    <li><a href="https://wa.me/message/6KDICSFNLV54P1" class="transition-link">Reclamos</a></li>
+                    <li><a href="Conctacto.html" class="transition-link">Contáctanos</a></li>
                 </ul>
             </div>
             <div>
-                <h3>Información</a></h3>
+                <h3>Información</h3>
                 <ul>
-                    <li><a href="/limites-diarios">Límites diarios</a></li>
-                    <li><a href="facilidad-pagos.html"></a>Tarjetas</li>
+                    <li><a href="LimitesDiarios.html" class="transition-link">Límites diarios</a></li>
+                    <li><a href="facilidad-pagos.html" class="transition-link">Tarjetas</a></li>
                 </ul>
             </div>
             <div>
-                <h3>Tasas y tarifas</a></h3>
+                <h3>Tasas y tarifas</h3>
                 <ul>
-                    <li><a href="/tasas-activas">Tasas activas</a></li>
+                    <li><a href="LimitesDiarios.html" class="transition-link">Actividad</a></li>
                 </ul>
             </div>
             <div>
-                <h3>Seguridad</a></h3>
+                <h3>Seguridad</h3>
                 <ul>
-                    <li><a href="/gestion-de-claves">Gestión de claves</a></li>
-                    <li><a href="/informacion-personal">Información personal</a></li>
+                    <li><a href="/gestion-de-claves" class="transition-link">Gestión de claves</a></li>
+                    <li><a href="/informacion-personal" class="transition-link">Información personal</a></li>
                 </ul>
             </div>
         </div>
@@ -183,31 +155,54 @@
         </div>
 
 
-        <footer class="social-footer">
-            <a href="https://maps.app.goo.gl/hbUCCk2eKTuFqDg3A" target="_blank">
+        <div class="social-footer">
+            <a href="index.html" target="_blank" class="transition-link">
                 <img src="GRAFICO/logo-no-background-01.png" class="footer-logo">
             </a>
-            <p class="rif">RIF: J018082003-05</p>
+            <p class="rif">+58 212-555-5555</p>
             <div class="social-icons">
-                <a href="https://www.facebook.com/rebecafernanda.silva.5/" target="_blank">
+                <a href="https://www.facebook.com/rebecafernanda.silva.5/" target="_blank" class="transition-link">
                     <img src="GRAFICO/35.png" alt="Facebook" class="social-icon">
                 </a>
-                <a href="https://www.twitter.com" target="_blank">
+                <a href="https://www.twitter.com" target="_blank" class="transition-link">
                     <img src="GRAFICO/33.png" alt="Twitter" class="social-icon">
                 </a>
-                <a href="https://www.instagram.com/rebecasiro18/" target="_blank">
+                <a href="https://www.instagram.com/rebecasiro18/" target="_blank" class="transition-link">
                     <img src="GRAFICO/34.png" alt="Instagram" class="social-icon">
                 </a>
-                <a href="https://www.linkedin.com" target="_blank">
+                <a href="https://www.linkedin.com" target="_blank" class="transition-link">
                     <img src="GRAFICO/32.png" alt="LinkedIn" class="social-icon">
                 </a>
             </div>
-        </footer>
+        </div>
 
     </footer>
 
+    
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll(".transition-link");
+        const loader = document.querySelector(".loader-container");
+    
+        links.forEach(link => {
+            link.addEventListener("click", function (event) {
+                event.preventDefault();
+                const href = this.getAttribute("href");
+    
+
+                loader.classList.add("active");
+    
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 550);
+            });
+        });
+    });
+    </script>
+
     <script src="script.js"></script>
-    <script src="scriptBTT.js" defer></script>
+    <script src="scriptBTT.js"></script>
+    <script src="scriptInput.js"></script>
     <a href="#top" class="back-to-top" id="backToTop">↑</a>
     
 </body>

@@ -1,0 +1,30 @@
+<div class="tarjetas-container">
+        <div class="tarjeta-box primera">
+            <div class="tarjeta-texto">
+                <h3>Mi primera tarjeta de<br>Crédito Universitario Visa</h3>
+                <pB>Solicitar aquí</pB>
+            </div>
+            <img src="GRAFICO/15.png" alt="Tarjeta Universitaria" class="tarjeta-img">
+        </div>
+
+        <div class="tarjeta-box">
+            <div class="tarjeta-texto">
+                <h2>Visa Dorada</h2>
+                <p>Solicitar aquí</p>
+            </div>
+            <img src="GRAFICO/16.png" alt="Visa Dorada" class="tarjeta-img">
+        </div>
+
+        <div class="tarjeta-box">
+            <div class="tarjeta-texto">
+                <h2>Visa Singular</h2>
+                <p>Solicitar aquí</p>
+            </div>
+            <img src="GRAFICO/14.png" alt="Visa Singular" class="tarjeta-img">
+        </div>
+    </div>
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+
