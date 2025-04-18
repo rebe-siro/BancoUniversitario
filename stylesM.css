@@ -8,6 +8,7 @@ body {
     padding: 0;
     
     
+    
 };
 
 h1 {
@@ -68,18 +69,20 @@ label {
 }
 
 @media screen and (max-width: 412px) {
+    
     .location-bar {
-        justify-content: center;  /* Centra la barra */
-        padding: 5px;             /* Reduce el padding */
-        height: 35px;             /* Ajusta la altura como la de la imagen */
+        justify-content: center;  
+        padding: 1px;             
+        height: 35px; 
+                    
     }
 
     .location-bar a {
-        font-size: 14px;          /* Texto más pequeño */
+        font-size: 14px;          
     }
 
     .icon {
-        width: 12px;              /* Íconos más pequeños */
+        width: 12px;              
         height: 12px;
     }
 }
@@ -115,11 +118,11 @@ label {
 
 #login-section {
     display: flex;
-    justify-content: center; /* Centra horizontalmente los hijos */
-    align-items: center;     /* Centra verticalmente los hijos */
-    gap: 2rem;              /* Espacio entre los contenedores */
-    min-height: 100vh;      /* Altura mínima de toda la pantalla */
-    padding: 1rem;          /* Padding para evitar pegado a bordes */
+    justify-content: center; 
+    align-items: center;     
+    gap: 2rem;              
+    min-height: 100vh;      
+    padding: 1rem;          
     
 }
 
@@ -127,12 +130,13 @@ label {
 .login-container {
     padding: 3rem;
     width: 100%;
-    max-width: 450px;       /* Ancho máximo más pequeño */
+    max-width: 450px;       
     background-color: rgba(179, 179, 179, 0.781);
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.767);
     justify-content: center center;
     align-items: center;
+
 }
 
 /* Contenedor de imagen */
@@ -141,10 +145,10 @@ label {
     background-size: cover;
     background-position: center;
     height: 550px;
-    width: 50%;             /* Ancho relativo al padre */
-    border-radius: 15px;    /* Bordes redondeados */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Sombra opcional */
-    display: none;          /* Ocultar en móvil por defecto */
+    width: 50%;            
+    border-radius: 15px;    
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+    display: none;         
 }
 
 .gradient-view {
@@ -175,7 +179,7 @@ label {
 }
 
 .gradient-view {
-    overflow-y: auto; /* Permite scroll */
+    overflow-y: auto; 
 }
 
 @keyframes gradientBG {
@@ -184,11 +188,12 @@ label {
     100% { background-position: 0% 50%; }
 }
 
-@media (max-width: 412px) {
+@media screen and (max-width: 412px) {
     .gradient-view::before {
-        animation: none; /* Desactiva animación en móvil si pesa mucho */
+        animation: none; 
     }
 }
+
 
 .header{
     display: flex;
@@ -273,37 +278,99 @@ label {
     cursor: pointer;
 }
 
+.actions {
+    display: flex;          
+    gap: 15px;             
+    align-items: center;   
+}
 
+
+/* CAMBIO DEL BOTON BANCA EN LINEA REBECA */
 .actions .buttonBL {
     background-color: #49BEB7;
     color: white;
-    padding: 10px 50px;
+    padding: 10px 20px;
     border-radius: 50px;
     font-size: 14px;
+    transition: all 0.3s;
 }
 
+/* CAMBIO DEL BOTON REGISTRARSE REBECA */
 .actions .buttonNotc {
     background-color: white;
-    color:  #49BEB7;
-    padding: 10px 50px;
-    border-radius: 50px;
+    color: #49BEB7; 
+    padding: 10px 20px; 
+    text-align: center;
     border: 1px solid #49BEB7;
-    font-size: 14px;
+    border-radius: 50px;
+    font-size: 14px; 
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+/* EFECTOS PARA LOS BOTONES REBECAAA */
+.actions .buttonBL:hover {
+    background-color: #0d5d60;
+}
+.actions .buttonNotc:hover {
+    background-color: #0d5d60;
+    color: white;
 }
 
 @media screen and (max-width: 412px) {
-    .header {
-        flex-direction: column;  /* Apila los elementos */
-        align-items: center;
-        padding: 10px;
-    }
 
     .container {
         flex-direction: column;
         justify-content: center;
         align-items: center;
         height: auto;
+        
     }
+    
+    /* AQUI HUBO CAMBIOS PARA EL HEADER REBECA */
+    .header {
+        flex-direction: column;  
+        align-items: center;
+        width: 100%;
+        padding: 10px;
+        max-width: 100%;
+    } 
+
+    .actions {
+        display: flex;
+        width: 60%;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .actions .buttonBL {
+        width: 100%;
+        max-width: 100%;
+        padding: 12px;
+        font-size: 18px;
+        text-align: center;
+        
+    }
+
+
+    .actions .buttonNotc {
+        background-color: white;
+        width: 100%;
+        max-width: 100%;
+        color: #49BEB7;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .actions .buttonBL:hover {
+        background-color: #0d5d60;
+    }
+    .actions .buttonNotc:hover {
+        background-color: #0d5d60;
+        color: white;
+    }
+
 
     .logo {
         width: 180px;
@@ -313,43 +380,24 @@ label {
         display: none;
     }
 
-    .actions {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .actions .buttonBL {
-        width: 80%;
-        max-width: 300px;  
-        padding: 15px;
-        font-size: 18px;
-        text-align: center;
-    }
 
     .search {
         justify-content: center;
         width: 100%;
         gap: 5px;
+        margin: 10px 0; /* LE PUSE MARGEN REBECAAAA PARA EL RESPONSIVE */
     }
 
     .search input {
         width: 70%;
-        font-size: 16px;
+        font-size: 12px;
     }
 
     .search button {
-        padding: 8px 15px;
-        font-size: 16px;
+        padding: 4px 12px;
+        font-size: 12px;
     }
 
-    .actions .buttonNotc {
-        background-color: white;
-        color:  white;
-        padding: 0px;
-        font-size: 0px;
-    }
 }
 
 
@@ -525,28 +573,33 @@ label {
     background-color: #49BEB7;
 }
 
-
-
+/* CORREGI ESTO AQUI REBECA PORQUE A MI SE DESCUADRA */
 
 .help-section {
     background-color: #49BEB7;
-    height: 395px; 
+    min-height: 10vh; 
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
-.help-content {
+
+.help-contentR {
     text-align: center;
     color: white;
-    margin-top: 1%;
-    margin-bottom: 2%;
-    
+    width: 100%;
+    max-width: 100%; 
+    padding: 20px;
 }
 
-.help-icon {
-    font-size: 50px;
-    margin-bottom: -20px;
+.help-iconR {
+    width: 60px; 
+    height: auto;
+    margin-bottom: 15px;
+    display: block;
+    margin: 0 auto; 
+
 }
 
 .help-content h2 {
@@ -574,15 +627,33 @@ label {
     color: white;
 }
 
+
+
+
 @media screen and (max-width: 412px) {
-    .help-content h2 {
-        font-size: 34px;
-        margin-bottom: -5px;
+    .help-section {
+        min-height: auto;
+        padding: 40px 20px;
     }
     
-    .help-content p {
-        font-size: 18px;
-        margin-bottom: 40px;
+    .help-contentR h2 {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+    }
+    
+    .help-contentR p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+    
+    .help-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+    
+    .help-iconR img {
+        width: 50px;
+        margin-bottom: 10px;
     }
 }
 
@@ -711,6 +782,17 @@ label {
     margin-bottom: 10px;
 }
 
+.big-dot {
+    font-size: 2rem; 
+    color: inherit; 
+}
+
+@media (max-width: 412px) {
+    .big-dot {
+        display: none;
+    }
+}
+
 .objetivos-list h3 {
     color: #2c3e50;
     margin-bottom: 5px;
@@ -756,8 +838,13 @@ label {
     }
 }
 
+/* OTRO CAMBIO AQUI REBECA */
 
 @media (max-width: 412px) {
+    body {
+        font-size: 16px;
+    }
+
     .nav-links {
         gap: 10px;
     }
@@ -767,14 +854,11 @@ label {
     }
 }
 
-@media (min-width: 413px) {
-    body {
-        font-size: 16px;
-    }
-}
+
 
 .footer {
     background-color: #f1f1f1;
+    
     height: 20px;
     text-align: left;    
     transition: 0.3s; 
@@ -974,13 +1058,6 @@ img{
     line-height: 1.5;
     max-width: 600px;
 }
-
-@media (max-width: 412px) {
-    .container-infoPrincipal {
-        padding: 25px 5% 25px 30px;
-        margin-top: 50px;
-    }
-}
  
 
 @media (max-width: 412px){
@@ -998,7 +1075,9 @@ img{
 
     .container-infoPrincipal {
         padding: 30px 5% 30px 50px; 
-        margin-top: 60px;
+        margin-top: 50px;
+        box-sizing: border-box;
+        overflow-x: hidden; 
     }
     
     .container-infoPrincipal h1 {
@@ -1021,6 +1100,7 @@ img{
         width: 90%;
         padding: 2rem;
         background-position: center center;
+        
     }
     h1 {
         font-size: 2rem;
@@ -1045,6 +1125,7 @@ img{
         display: flex;
         z-index: 1;
         
+        
     }
 
 
@@ -1054,12 +1135,12 @@ img{
     }
 
     .image-container {
-        display: block;     /* Mostrar solo en pantallas grandes */
-        width: 45%;         /* Ajuste fino del ancho */
+        display: block;     
+        width: 45%;         
     }
     
     .login-container {
-        width: 45%;         /* Mismo ancho que la imagen para equilibrio */
+        width: 45%;        
     }
    
 
@@ -1082,6 +1163,7 @@ img{
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
+
 
 .loader {
     width: 50px;
@@ -1185,7 +1267,7 @@ img{
 }
 
 .acordeon-icono {
-    font-size: 1.2rem; /* Reducido para móvil */
+    font-size: 1.2rem; 
     transition: transform 0.3s ease;
 }
 
@@ -1194,7 +1276,7 @@ img{
 }
 
 
-/* Responsive para pantallas pequeñas */
+
 @media (max-width: 412px) {
     .transferencias-container {
         margin: 10px 10px;
@@ -1235,17 +1317,41 @@ img{
     }
 }
 
-/* Versión para pantallas más grandes */
+
 @media (min-width: 768px) {
     .acordeon-principal h1 {
-        font-size: 1.5rem; /* Tamaño original en desktop */
+        font-size: 1.5rem; 
     }
     
     .seccion-transferencia h3 {
-        font-size: 1.2rem; /* Tamaño original en desktop */
+        font-size: 1.2rem; 
     }
     
     .seccion-transferencia p {
-        font-size: 1rem; /* Tamaño original en desktop */
+        font-size: 1rem; 
     }
 }
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #085F63;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none; /* Inicialmente está escondido */
+    z-index: 1000;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.back-to-top:hover {
+    background-color: #0a7a7f;
+    transform: scale(1.1);
+}
+
