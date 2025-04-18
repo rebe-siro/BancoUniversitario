@@ -1,65 +1,77 @@
-<!DOCTYPE html>
 
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Noticias</title>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="stylesJ.css">
-        <link rel="stylesheet" href="styleBTT.css">
-        <link rel="stylesheet" href="stylesNoticias.css">
-        <link rel="icon" href="GRAFICO/mancha.png" type="image/x-icon">
-        <div class="loader-container">
-                <div class="loader"></div>
-            </div>
-    </head>
-    <body>
-        <div class="location-bar">
-            <a href="https://maps.app.goo.gl/hbUCCk2eKTuFqDg3A" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" alt="Ubicación" class="icon">
-                Ubícanos
+transition-link
+class="transition-link"
+
+
+<div class="loader-container">
+        <div class="loader"></div>
+    </div>
+
+
+<div class="location-bar">
+        <a href="https://maps.app.goo.gl/hbUCCk2eKTuFqDg3A" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" alt="Ubicación" class="icon">
+            Ubícanos
+        </a>
+    </div>
+
+        <div class="header">
+            <div class="container"></div>
+            <a href="index.html" target="_blank" class="transition-link">
+                <img src="GRAFICO/logo-no-background.png" class="logo">
             </a>
-        </div>
-    
-            <div class="header">
-                <div class="container"></div>
-                <a href="index.html" target="_blank" class="transition-link">
-                    <img src="GRAFICO/logo-no-background.png" class="logo">
-                </a>
-                    <div class="nav-links">
-                        <a href="facilidad-pagos.html" class="transition-link">Servicios</a>
-                        <a href="Mision.html" class="transition-link">Sobre nosotros</a>
-                    </div>
-                <div class="search">
-                        <button><img src="https://cdn-icons-png.flaticon.com/128/49/49116.png" id="searchBtn" class="icon"></button>
-                    </button>
-                    <input type="text" id="searchInput" placeholder="Buscar">
+                <div class="nav-links">
+                    <a href="facilidad-pagos.html" class="transition-link">Servicios</a>
+                    <a href="Mision.html" class="transition-link">Sobre nosotros</a>
                 </div>
-                    <div class="actions">
-                        <a href="Login.html" class="buttonBL transition-link">Banca en línea</a>
-                        <a href="/Inscribirse" class="buttonNotc transition-link">Registrarse</a>
-                    </div>
+            <div class="search">
+                    <button><img src="https://cdn-icons-png.flaticon.com/128/49/49116.png" id="searchBtn" class="icon"></button>
+                </button>
+                <input type="text" id="searchInput" placeholder="Buscar">
+            </div>
+                <div class="actions">
+                    <a href="Login.html" class="buttonBL transition-link">Banca en línea</a>
+                    <a href="/Inscribirse" class="buttonNotc transition-link">Registrarse</a>
                 </div>
             </div>
+        </div>
 
-            
-            <main>
-                <div class="image-slider">
-                    <img src="GRAFICO/2.png" class="slider-image">
+
+
+
+
+
+
+
+<div class="help-section">
+            <div class="help-content">
+                <div class="help-iconR">
+                    <i><img src="https://cdn-icons-png.flaticon.com/128/545/545684.png"></i>
                 </div>
-                        <section class="noticias-externas">
-                            <h2>Noticias Externas</h2>
-                            <ul></ul>
-                        </section>
-              
+                <h2>¿Necesitas ayuda?</h2>
+                <p>Estamos aquí para ayudarte</p>
+                <a href="Conctacto.html" class="help-button transition-link">Contáctanos</a>
+            </div>
+        </div>
 
 
-        
-        
-            </main>
 
-            <footer class="footer">
+<div class="help-section">
+        <div class="help-contentR">
+            <div class="help-iconR">
+                <img src="https://cdn-icons-png.flaticon.com/128/545/545684.png">
+            </div>
+            <h2>¿Necesitas ayuda?</h2>
+            <p>Estamos aquí para ayudarte</p>
+            <a href="Conctacto.html" class="help-button transition-link">Contáctanos</a>
+        </div>
+    </div>
+
+
+
+
+
+<footer class="footer">
                 <div class="footer-links">
                     <div>
                         <h3>Corporativo</h3>
@@ -124,32 +136,34 @@
     
             </footer>
 
-            <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                    const links = document.querySelectorAll(".transition-link");
-                    const loader = document.querySelector(".loader-container");
-                
-                    links.forEach(link => {
-                        link.addEventListener("click", function (event) {
-                            event.preventDefault();
-                            const href = this.getAttribute("href");
-                
+
+
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const links = document.querySelectorAll(".transition-link");
+            const loader = document.querySelector(".loader-container");
         
-                            loader.classList.add("active");
-                
-                            setTimeout(() => {
-                                window.location.href = href;
-                            }, 550);
-                        });
-                    });
+            links.forEach(link => {
+                link.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const href = this.getAttribute("href");
+        
+
+                    loader.classList.add("active");
+        
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 550);
                 });
-                </script>
-        
+            });
+        });
+        </script>
+
         <script src="script.js"></script>
         <script src="scriptBTT.js"></script>
         <script src="scriptInput.js"></script>
         <a href="#top" class="back-to-top" id="backToTop">↑</a>
-        <script src="https://cdn.jsdelivr.net/npm/rss-parser/dist/rss-parser.min.js"></script>
-        <script src="scriptNoticasRSS.js" defer></script>
-    </body>
-</html>
+
+
+
+
