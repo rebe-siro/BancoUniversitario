@@ -206,10 +206,13 @@ body {
 }
 @media screen and (max-width: 412px) {
     .header {
-        flex-direction: column;
+        flex-direction: column;  
         align-items: center;
+        width: 100%;
         padding: 10px;
-    }
+        max-width: 100%;
+    } 
+
 
     .container {
         flex-direction: column;
@@ -217,6 +220,7 @@ body {
         align-items: center;
         height: auto;
     }
+
 
     .logo {
         width: 180px;
@@ -228,10 +232,12 @@ body {
 
     .actions {
         display: flex;
+        width: 60%;
         flex-direction: column;
         align-items: center;
-        gap: 15px;
+        gap: 10px;
     }
+
 
     .actions .buttonBL {
         width: 80%;
@@ -245,17 +251,20 @@ body {
         justify-content: center;
         width: 100%;
         gap: 5px;
+        margin: 10px 0; /* LE PUSE MARGEN REBECAAAA PARA EL RESPONSIVE */
     }
+
 
     .search input {
         width: 70%;
-        font-size: 16px;
+        font-size: 12px;
     }
 
     .search button {
-        padding: 8px 15px;
-        font-size: 16px;
+        padding: 4px 12px;
+        font-size: 12px;
     }
+
 
     .actions .buttonNotc {
         background-color: white;
