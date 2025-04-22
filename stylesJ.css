@@ -131,7 +131,7 @@ label {
 
 /* Conctacto */
 
-/* Boxes de Contacto */
+/* Cajas de Contacto */
 .contact-boxes {
     display: flex;
     justify-content: space-around;
@@ -146,10 +146,11 @@ label {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Boxes de contacto individuales */
+/* Cajas de contacto individuales */
 .contact-box {
-    flex: 1 1 calc(33.333% - 20px); /* Responsive: 3 boxes por línea */
-    max-width: 300px;
+    flex: 1 1 calc(25% - 20px); /* Responsive: 4 cajas por fila */
+    max-width: 290px;
+    height: 230px;
     text-align: center;
     padding: 20px;
     background-color: white;
@@ -164,32 +165,40 @@ label {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Icono Contacto */
+/* Icono de la Caja */
 .contact-icon {
     width: 50px;
     height: 50px;
     margin-bottom: 15px;
 }
 
-/* Box de Conctacto titulo */
+/* Título de la Caja */
 .contact-box h3 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: #085F63;
     margin-bottom: 10px;
 }
 
-/* Box de Contacto texto */
+/* Texto de la Caja */
 .contact-box p {
     font-size: 1rem;
     color: #555;
 }
 
 /* Diseño responsive para pantallas pequeñas */
+
 @media screen and (max-width: 768px) {
     .contact-boxes {
-        flex-direction: column;
+        flex: 1 1 calc(50% - 20px); /* 2 cajas por fila */
         gap: 20px;
     }
+}
+
+@media screen and (max-width: 480px) {
+        .contact-boxes {
+            flex: 1 1 100%; /* 1 cajas por fila */
+            gap: 20px;
+        }
 
     .contact-box {
         max-width: 100%;
