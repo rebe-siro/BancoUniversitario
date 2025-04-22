@@ -35,17 +35,17 @@ function exportarAExcel() {
       nuevoRegistro[key] = value;
     }
   
-    let registros = JSON.parse(localStorage.getItem("datosEmpresa")) || [];
+    let registros = JSON.parse(localStorage.getItem("datosEstudiante")) || [];
   
     registros.push(nuevoRegistro);
   
-    localStorage.setItem("datosEmpresa", JSON.stringify(registros));
+    localStorage.setItem("datosEstudiante", JSON.stringify(registros));
   
     const ws = XLSX.utils.json_to_sheet(registros);
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, "Formulario");
   
-    XLSX.writeFile(wb, "datos_empresa.xlsx");
+    XLSX.writeFile(wb, "datos_Estudiante.xlsx");
   
     const mensajeExito = document.getElementById("mensaje-exito");
     mensajeExito.style.display = "block";
