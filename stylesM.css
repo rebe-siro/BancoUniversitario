@@ -38,6 +38,7 @@ label {
 }
 
 .location-bar {
+    z-index: 5;
     background-color: #0d5d60;
     padding: 10px 20px;
     display: flex;
@@ -194,17 +195,22 @@ label {
     }
 }
 
+/* Aqui logre que fuera fijo a cambio del sacrificio de la barra de locacion */
 
 .header{
     display: flex;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.61); 
     justify-content: space-between;
     align-items: center;
     background-color: #ffffff;
     padding: 20px;
     flex-wrap: wrap;
 }
-
-
 
 .logo {
     width: 250px;
@@ -256,8 +262,6 @@ label {
     padding: 45px 25px;
    
 }
-
-
 
 
 .search {
@@ -324,7 +328,6 @@ label {
         justify-content: center;
         align-items: center;
         height: auto;
-        
     }
     
     /* AQUI HUBO CAMBIOS PARA EL HEADER REBECA */
@@ -334,6 +337,8 @@ label {
         width: 100%;
         padding: 10px;
         max-width: 100%;
+        position: relative;
+        box-shadow: none;
     } 
 
     .actions {
@@ -858,7 +863,6 @@ label {
 
 .footer {
     background-color: #f1f1f1;
-    
     height: 20px;
     text-align: left;    
     transition: 0.3s; 
@@ -989,21 +993,35 @@ label {
     transform: scale(1.1);
 }
 
+/* Rebeca aqui hice un cambio para los iconos 
+del footer cuando pasen a esta resolucion */
+
 @media screen and (max-width: 412px) {
     .social-footer {
-        display: flex;
-        justify-content: center; 
-        align-items: center;       
-        padding: 40px;             
+        flex-direction: column; 
+        padding: 20px;
+        gap: 15px;         
     }
 
     .rif {
-        text-align: center;       
-        font-size: 22px;           
+        font-size: 22px;
+        margin-bottom: 10px;
+        order: 2;           
     }
 
-    .footer-logo,
     .social-icons {
+        display: flex !important; 
+        justify-content: center;
+        order: 1; 
+        gap: 18px;
+    }
+
+    .social-icon {
+        width: 50px; 
+        height: 50px;
+    }
+
+    .footer-logo {
         display: none;             
     }
 }   
@@ -1030,16 +1048,19 @@ img{
 
 }
 
+/* Aqui creo que modifique algo, ya no me acuerdo la verdad
+compara pero habia algo fallando tambien xd arreglado pero bueno */
+
 .container-infoPrincipal {
     position: relative;
-    z-index: 10; 
+    z-index: 1; 
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
-    padding: 40px 5% 40px 60px; 
+    padding: 60px 5% 40px 5%;
+    margin: 0 auto; 
     margin-top: 30px; 
-    margin-bottom: 30px; 
     background-color: #085F63;
     color: white;
     width: 100%;
@@ -1068,14 +1089,12 @@ img{
         }    
     }
 
-
     .gradient-view::before {
         animation: none; 
     }
 
     .container-infoPrincipal {
         padding: 30px 5% 30px 50px; 
-        margin-top: 50px;
         box-sizing: border-box;
         overflow-x: hidden; 
     }
@@ -1095,6 +1114,7 @@ img{
     header .container {
         flex-direction: row;
         right: inherit;
+        position: relative;
     }
     .login-container {
         width: 90%;
@@ -1102,6 +1122,7 @@ img{
         background-position: center center;
         
     }
+    
     h1 {
         font-size: 2rem;
     }
@@ -1112,8 +1133,6 @@ img{
         padding: 12px;
         font-size: 0.9rem;
     }
-
-
     
     .rif {
         text-align: left;
