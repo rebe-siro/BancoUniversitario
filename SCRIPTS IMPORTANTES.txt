@@ -1,3 +1,17 @@
+<header>
+     <div w3-include-html="header.html"></div>
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script>w3.includeHTML();</script>
+</header>
+
+    <!-- footer hecho en html rebeca -->
+ <footer>
+    <div w3-include-html="footer.html"></div>
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script>w3.includeHTML();</script>
+ </footer>
+
+
 
 transition-link
 class="transition-link"
