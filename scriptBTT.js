@@ -14,3 +14,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+  window.addEventListener('scroll', function () {
+    const header = document.querySelector('.header');
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  window.addEventListener('scroll', function () {
+    const bar = document.querySelector('.location-bar');
+    if (window.scrollY > 50) {
+      bar.classList.add('scrolled');
+    } else {
+      bar.classList.remove('scrolled');
+    }
+  });

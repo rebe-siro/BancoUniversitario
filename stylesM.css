@@ -4,7 +4,7 @@
 
 body {
     font-family: 'Montserrat Alternates', sans-serif;
-    margin: 0;
+    margin-top: 150px;
     padding: 0;
     
     
@@ -196,21 +196,37 @@ label {
 }
 
 /* Aqui logre que fuera fijo a cambio del sacrificio de la barra de locacion */
+/* Rebeca quitó el sacrificio, ahora todo se desplaza*/
+
+.headerGeneral {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999; /* para que esté por encima de otros elementos */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
 
 .header{
     display: flex;
-    position: fixed;
-    z-index: 5;
-    top: 0;
-    width: 100%;
     background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.61); 
     justify-content: space-between;
     align-items: center;
     background-color: #ffffff;
     padding: 20px;
     flex-wrap: wrap;
 }
+
+.header.scrolled {
+    background-color: rgba(255, 255, 255, 0.5); /* blanco con 50% opacidad */
+    backdrop-filter: blur(5px); /* opcional: efecto de desenfoque detrás */
+}
+
+.location-bar.scrolled {
+    background-color: rgba(255, 255, 255, 0.5); /* blanco con 50% opacidad */
+    backdrop-filter: blur(5px); /* opcional: efecto de desenfoque detrás */
+}
+
 
 .logo {
     width: 250px;
