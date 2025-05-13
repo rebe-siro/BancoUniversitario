@@ -1,0 +1,37 @@
+<!-- menu.html -->
+<header class="ibank-header">
+    <div class="header-container">
+    
+        <div class="logo-container">
+            <img src="GRAFICOS BANCA/logo-no-background-01.png" alt="Logo del banco" class="bank-logo">
+        </div>
+        
+        <!-- Menú horizontal principal -->
+        <nav class="main-menu">
+            <a href="Movimientos.html" class="menu-item">Movimientos</a>
+            <a href="Transferencias.html" class="menu-item">Transferencias</a>
+            <a href="Contactos.html" class="menu-item">Contactos</a>
+            <a href="Servicios.html" class="menu-item">Servicios</a>
+        </nav>
+        
+        <!-- Sección de usuario -->
+        <div class="user-panel">
+            <span class="welcome-msg">Bienvenido, Usuario</span>
+            <a href="Login.html" class="logout-btn">Cerrar sesión</a>
+        </div>
+    </div>
+</header>
+
+<script>
+    // Marcar página activa automáticamente
+    document.addEventListener('DOMContentLoaded', function() {
+        const links = document.querySelectorAll('.menu-link');
+        const currentPage = window.location.pathname.split('/').pop();
+        
+        links.forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+    });
+    </script>
