@@ -8,16 +8,8 @@
     <link rel="stylesheet" href="StyleMBanca.css">
 </head>
 <body>
-    <div class="bank-container">
-        <header class="bank-header">
-            <div class="logo-container">
-                <img src="GRAFICOS BANCA/logo-no-background-01.png" alt="Logo del banco" class="bank-logo">
-            </div>
-            <div class="user-info">
-                <span class="welcome">Bienvenido, <strong>Usuario</strong></span>
-                <button class="logout-btn" onclick="window.location.href='../Login.html'">Cerrar sesión</button>
-            </div>
-        </header>
+        <div class="bank-container">
+        <div w3-include-html="menu.html"></div>
 
         <main class="bank-main">
             <section class="balance-display">
@@ -103,5 +95,6 @@
     </div>
 
     <script src="scriptMBanca.js"></script>
+    <script src="include.js"></script>
 </body>
 </html>

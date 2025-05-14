@@ -27,15 +27,6 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault();
     alert('Función en construcción: Recuperar contraseña');
   });
-  
-  document.getElementById('registro').addEventListener('click', function(e) {
-    e.preventDefault();
-    const nuevoUsuario = prompt('Nuevo usuario:');
-    const nuevaContrasena = prompt('Contraseña:');
-    if (nuevoUsuario && nuevaContrasena) {
-      alert(`Usuario ${nuevoUsuario} registrado. ¡Ahora puedes iniciar sesión!`);
-    }
-  });
 
   function clear() {
     document.getElementById('usuario').value = '';

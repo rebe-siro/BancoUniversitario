@@ -1,5 +1,10 @@
 /* LANDPAGE   */
 
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 body {
     margin-top: 150px;
@@ -285,9 +290,11 @@ body {
 
     .actions .buttonNotc {
         background-color: white;
-        color:  white;
-        padding: 0px;
-        font-size: 0px;
+        width: 100%;
+        max-width: 100%;
+        color: #49BEB7;
+        padding: 12px;
+        font-size: 14px;
     }
 }
 
@@ -323,7 +330,7 @@ body {
 .button-sectionR {
     display: flex;
     justify-content: space-around;
- 
+    
     margin: 50px 100px;
     gap: 0px;
 }
@@ -371,7 +378,8 @@ body {
         display: grid;
         grid-template-columns: repeat(2, 1fr);  
         gap: 10px;                              
-        margin: 20px;                           
+        margin: 20px;
+        margin-top: 260px;                           
     }
     
     
