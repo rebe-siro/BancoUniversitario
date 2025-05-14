@@ -16,20 +16,8 @@
 </head>
 
 <body>
-    <div class="location-bar">
-        <a href="https://maps.app.goo.gl/hbUCCk2eKTuFqDg3A" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" alt="Ubicación" class="icon">
-            Ubícanos
-        </a>
-    </div>
 
-        <div class="header">
-            <div class="container"></div>
-            <a href="index.html" target="_blank" class="transition-link">
-                <img src="GRAFICO/logo-no-background.png" class="logoCuenta">
-            </a>
-            </div>
-        </div>
+    <headerGeneral w3-include-html="header.html"></headerGeneral>
 
         <div class="linea"></div>
 
@@ -56,13 +44,14 @@
                 <input type="text" placeholder="¿Trabajas?" name="agencia">
                 <input type="text" placeholder="¿Cuánto dinero sueles manejar mensualmente?" name="cantidadD">
               </div>
-        
+
               <buttonAB type="button" onclick="exportarAExcel()">Enviar mis datos</buttonAB>
               <p id="mensaje-exito" style="display: none; color: green; font-weight: bold; margin-top: 20px;">
                 ¡Datos enviados exitosamente!
               </p>
             </form>
           </div>
+          
           <br><br><br><br>
 
 
@@ -116,6 +105,11 @@
             });
         });
     });
+    </script>
+
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script>
+        w3.includeHTML();
     </script>
 
     <script src="scriptBTT.js"></script>
