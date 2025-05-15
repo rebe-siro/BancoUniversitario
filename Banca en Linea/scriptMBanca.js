@@ -22,9 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
-            // Remover clase active de todos los botones
             filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Agregar clase active al botón clickeado
             this.classList.add('active');
             
             const filter = this.dataset.filter;
@@ -43,13 +41,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Simular datos dinámicos (en un caso real, esto vendría de una API)
+    // Simular datos dinámicos 
     function formatDate(date) {
         const options = { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' };
         return date.toLocaleDateString('es-MX', options).replace(',', '');
     }
 
-    // Efecto hover para los botones
     const buttons = document.querySelectorAll('button');
     buttons.forEach(button => {
         button.addEventListener('mouseenter', function() {
