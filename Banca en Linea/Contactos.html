@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactos | Banca en Línea</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="StyleMBanca.css">
+    <link rel="stylesheet" href="stylesRegistrarse.css">
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="bank-container">
+        <div w3-include-html="menu.html"></div>
+
+        <!-- Vista de Contactos -->
+        <main class="contacts-container">
+            <div class="contacts-header">
+                <h1 class="contacts-title">Contactos</h1>
+            </div>
+            
+            <table class="contacts-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Juan Pérez</td>
+                        <td>juan.perez@example.com</td>
+                        <td>+1 234 567 8901</td>
+                        <td class="contact-actions">
+                            <button class="btn-action btn-view" title="Ver"><i class="fas fa-eye"></i></button>
+                            <button class="btn-action btn-edit" title="Editar"><i class="fas fa-edit"></i></button>
+                            <button class="btn-action btn-delete" title="Eliminar"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>María García</td>
+                        <td>maria.garcia@example.com</td>
+                        <td>+1 987 654 3210</td>
+                        <td class="contact-actions">
+                            <button class="btn-action btn-view" title="Ver"><i class="fas fa-eye"></i></button>
+                            <button class="btn-action btn-edit" title="Editar"><i class="fas fa-edit"></i></button>
+                            <button class="btn-action btn-delete" title="Eliminar"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Carlos López</td>
+                        <td>carlos.lopez@example.com</td>
+                        <td>+1 555 123 4567</td>
+                        <td class="contact-actions">
+                            <button class="btn-action btn-view" title="Ver"><i class="fas fa-eye"></i></button>
+                            <button class="btn-action btn-edit" title="Editar"><i class="fas fa-edit"></i></button>
+                            <button class="btn-action btn-delete" title="Eliminar"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <!-- Botón flotante para agregar contacto -->
+            <button class="add-contact-btn" id="addContactBtn">
+                <i class="fas fa-plus"></i>
+            </button>
+            
+            <div class="modal" id="contactModal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="modalTitle">Agregar Nuevo Contacto</h2>
+                        <button class="close-modal">&times;</button>
+                    </div>
+                    
+                    <div class="modal-body" id="modalBody">
+                        <!-- Contenido dinámico según el tipo de modal -->
+                        <form id="contactForm" class="modal-form">
+                            <div class="form-group">
+                                <label for="contactName">Nombre</label>
+                                <input type="text" id="contactName" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactEmail">Email</label>
+                                <input type="email" id="contactEmail" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactPhone">Teléfono</label>
+                                <input type="tel" id="contactPhone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="contactMessage">Mensaje</label>
+                                <textarea id="contactMessage" name="message" required></textarea>
+                            </div>
+                            <input type="hidden" id="contactId">
+                            
+                            <div class="modal-actions">
+                                <button type="button" class="btn btn-secondary" id="cancelBtn">Cancelar</button>
+                                <button type="submit" class="btn btn-primary" id="submitBtn">Guardar</button>
+                            </div>
+                        </form>
+                        
+                        <div id="viewContent" class="contact-view" style="display:none;">
+                            <div class="contact-info">
+                                <label>Nombre:</label>
+                                <p id="viewName"></p>
+                            </div>
+                            <div class="contact-info">
+                                <label>Email:</label>
+                                <p id="viewEmail"></p>
+                            </div>
+                            <div class="contact-info">
+                                <label>Teléfono:</label>
+                                <p id="viewPhone"></p>
+                            </div>
+                            <div class="contact-info">
+                                <label>Mensaje:</label>
+                                <p id="viewMessage"></p>
+                            </div>
+                            <div class="contact-info">
+                                <label>Fecha:</label>
+                                <p id="viewDate"></p>
+                            </div>
+                            
+                            <div class="modal-actions view-actions">
+                                <button class="btn-edit-view" id="editViewBtn">
+                                    <i class="fas fa-edit"></i> Editar
+                                </button>
+                                <button class="btn btn-secondary" id="closeViewBtn">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>         
+            
+        </main>
+
+        <footer class="bank-footer">
+            <p>© 2025 Banco Universitario. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script src="scriptMBanca.js"></script>
+    <script src="include.js"></script>
+    <script src="ContactosM.js"></script>
+</body>
+</html>
