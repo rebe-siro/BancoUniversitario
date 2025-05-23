@@ -527,115 +527,115 @@ body {
 
 /*VISTA DE CONTACTOS
 
-    /* Estilos específicos para la vista de contactos */
-    .contacts-container {
-        padding: 2rem;
-        flex: 1;
-    }
-        
-    .contacts-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 1.5rem;
-    }
-        
-    .contacts-title {
-        color: var(--primary-color);
-        font-size: 1.8rem;
-        margin: 0;
-    }
-        
-    .contacts-table {
-        width: 100%;
-        border-collapse: collapse;
-        background-color: var(--white);
-        box-shadow: var(--shadow);
-        border-radius: 8px;
-        overflow: hidden;
-    }
-        
-    .contacts-table th {
-        background-color: var(--primary-color);
-        color: white;
-        padding: 1rem;
-        text-align: left;
-    }
-        
-    .contacts-table td {
-        padding: 1rem;
-        border-bottom: 1px solid var(--table-border);
-    }
-        
-    .contacts-table tr:last-child td {
-        border-bottom: none;
-    }
-        
-    .contacts-table tr:hover {
-        background-color: var(--light-gray);
-    }
-        
-    .contact-actions {
-        display: flex;
-        gap: 0.5rem;
-    }
-        
-    .btn-action {
-        padding: 0.5rem;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: all 0.3s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-        
-    .btn-view {
-        background-color: var(--secondary-color);
-        color: white;
-    }
-    
-    .btn-edit {
-            background-color: var(--accent-color);
-            color: white;
-        }
-        
-    .btn-delete {
-        background-color: var(--negative-color);
-        color: white;
-    }
-    
-    .btn-action:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow);
-    }
-    
-    .add-contact-btn {
-        position: fixed;
-        bottom: 2rem;
-        right: 2rem;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background-color: var(--secondary-color);
-        color: white;
-        border: none;
-        font-size: 1.5rem;
-        cursor: pointer;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        transition: all 0.3s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 100;
-    }
-    
-    .add-contact-btn:hover {
-        background-color: var(--primary-color);
-        transform: scale(1.1);
-    }
-    
+/* ESTILOS PARA LA TABLA DE CONTACTOS */
+.contacts-container {
+    padding: 2rem;
+    flex: 1;
+}
+
+.contacts-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.contacts-title {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.contacts-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.contacts-table th {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 500;
+}
+
+.contacts-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--table-border, #e0e0e0);
+}
+
+.contacts-table tr:last-child td {
+    border-bottom: none;
+}
+
+.contacts-table tr:hover {
+    background-color: rgba(0, 120, 215, 0.05);
+}
+
+.contact-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-action {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+}
+
+.btn-view {
+    background-color: var(--secondary-color, #16a085);
+    color: white;
+}
+
+.btn-delete {
+    background-color: var(--negative-color, #e74c3c);
+    color: white;
+}
+
+.btn-action:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* BOTÓN FLOTANTE */
+.add-contact-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--secondary-color, #16a085);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.add-contact-btn:hover {
+    background-color: var(--primary-color, #2c3e50);
+    transform: scale(1.1);
+}
+
+/* ESTILOS PARA MODAL */
 .modal {
     display: none;
     position: fixed;
@@ -654,12 +654,11 @@ body {
     background-color: white;
     border-radius: 12px;
     width: 100%;
-    max-width: 50%;
+    max-width: 500px;
     margin: auto;
-    box-shadow: 0 10px 30px rgba(95, 255, 207, 0.616);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     position: relative;
     animation: modalFadeIn 0.3s ease-out;
-    
 }
 
 @keyframes modalFadeIn {
@@ -669,7 +668,7 @@ body {
 
 .modal-header {
     padding: 20px 25px;
-    border-bottom: 1px solid var(--light-gray);
+    border-bottom: 1px solid var(--light-gray, #e0e0e0);
     position: relative;
 }
 
@@ -707,129 +706,7 @@ body {
     padding: 25px;
 }
 
-/* ESTILOS ESPECÍFICOS PARA VER CONTACTO */
-
-/* Estilos mejorados para la vista de contacto */
-.contact-view {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.contact-info {
-    position: relative;
-    margin-bottom: 1.5rem;
-    transition: all 0.3s ease;
-}
-
-.contact-info:hover {
-    transform: translateX(5px);
-}
-
-.contact-info label {
-    font-weight: 600;
-    color: var(--primary-color);
-    display: block;
-    margin-bottom: 0.8rem;
-    font-size: 0.95rem;
-    position: relative;
-    padding-left: 15px;
-}
-
-.contact-info label::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 8px;
-    height: 8px;
-    background-color: var(--secondary-color);
-    border-radius: 50%;
-}
-
-.contact-info p {
-    margin: 0;
-    padding: 15px 20px;
-    background-color: rgba(236, 240, 241, 0.7);
-    border-radius: 10px;
-    font-size: 1rem;
-    border-left: 4px solid var(--secondary-color);
-    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
-    line-height: 1.6;
-}
-
-.contact-info p:hover {
-    background-color: rgba(236, 240, 241, 0.9);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-/* Estilos mejorados para los botones de acción en modal */
-.modal-actions.view-actions {
-    justify-content: space-between;
-    padding-top: 25px;
-    margin-top: 30px;
-    background: linear-gradient(to top, #f9f9f9, white);
-    border-top: 1px solid rgba(0,0,0,0.1);
-}
-
-.btn-edit-view {
-    background-color: var(--primary-color);
-    color: white;
-    margin-left: auto;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: all 0.3s;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.btn-edit-view:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-2px);
-    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-}
-
-.btn-edit-view i {
-    font-size: 0.9em;
-}
-
-/* Efecto de tarjeta para el contenido */
-.modal-body.view-mode {
-    background: #f9f9f9;
-    border-radius: 0 0 12px 12px;
-    padding: 30px;
-}
-
-
-#viewModal .contact-info {
-    margin-bottom: 1.5rem;
-}
-
-#viewModal .contact-info label {
-    font-weight: 600;
-    color: var(--primary-color);
-    display: block;
-    margin-bottom: 0.5rem;
-    font-size: 0.95rem;
-}
-
-#viewModal .contact-info p {
-    margin: 0;
-    padding: 12px 15px;
-    background-color: rgba(236, 240, 241, 0.5);
-    border-radius: 8px;
-    font-size: 1rem;
-    border-left: 4px solid var(--secondary-color);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-/* ESTILOS PARA FORMULARIOS (AGREGAR/EDITAR) */
+/* ESTILOS PARA FORMULARIOS */
 .form-group {
     margin-bottom: 1.5rem;
 }
@@ -837,7 +714,7 @@ body {
 .form-group label {
     display: block;
     margin-bottom: 0.6rem;
-    
+    color: var(--primary-color);
     font-weight: 500;
     font-size: 0.95rem;
 }
@@ -850,69 +727,118 @@ body {
     border-radius: 8px;
     font-size: 1rem;
     transition: all 0.3s;
-    background-color: rgb(0, 204, 255);
+    background-color: rgba(236, 240, 241, 0.3);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     border-color: var(--secondary-color);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(73, 190, 183, 0.2);
+    box-shadow: 0 0 0 3px rgba(22, 160, 133, 0.2);
     background-color: white;
 }
 
 .form-group textarea {
-    min-height: 120px;
+    min-height: 100px;
     resize: vertical;
     line-height: 1.5;
 }
 
-/* BOTONES */
+/* ESTILOS PARA VISTA DE DETALLES */
+.contact-view {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-info {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.contact-info label {
+    font-weight: 600;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.contact-info p {
+    margin: 0;
+    padding: 12px 15px;
+    background-color: rgba(236, 240, 241, 0.5);
+    border-radius: 8px;
+    font-size: 1rem;
+    border-left: 4px solid var(--secondary-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    line-height: 1.6;
+}
+
+/* BOTONES DEL MODAL */
 .modal-actions {
     display: flex;
     justify-content: flex-end;
     gap: 15px;
     margin-top: 2rem;
-    margin-bottom: 1.5rem; 
-    padding: 20px 25px; 
+    padding-top: 20px;
     border-top: 1px solid var(--light-gray);
-    background-color: #f9f9f9; 
-    border-bottom-left-radius: 12px; 
-    border-bottom-right-radius: 12px;
 }
 
-.btn-cancel, .btn-secondary {
-    background-color: #ff0026b0;
+.modal-actions.view-actions {
+    justify-content: space-between;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s;
+    display: flex;
+}
+
+.btn-secondary {
+    background-color: #ff000096;
     color: #ffffff;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: all 0.3s;
 }
 
-.btn-submit, .btn-primary {
-    background-color: var(--secondary-color);
+.btn-primary {
+    background-color: #008188c4;
     color: white;
+}
+
+.btn-edit-view {
     padding: 12px 25px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     font-weight: 500;
     transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #008188c4;
+    color: #ffffff;
+    margin-left: auto;
 }
 
-.btn-cancel:hover, .btn-secondary:hover {
-    background-color: #ff0019;
+.btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 3px 10px rgba(236, 51, 30, 0.575);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
-.btn-submit:hover, .btn-primary:hover {
-    background-color: var(--primary-color);
-    transform: translateY(-2px);
-    box-shadow: 0 3px 10px rgba(13, 93, 96, 0.2);
+.btn-secondary:hover {
+    background-color: #ff0000d2;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+}
+
+.btn-edit-view:hover {
+    background-color: var(--secondary-color);
 }
 
 /* VALIDACIÓN */

@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="StyleMBanca.css">
     <link rel="stylesheet" href="stylesRegistrarse.css">
-    <style>
-
-    </style>
 </head>
 <body>
     <div class="bank-container">
@@ -18,46 +15,34 @@
         <!-- Vista de Contactos -->
         <main class="contacts-container">
             <div class="contacts-header">
-                <h1 class="contacts-title">Contactos</h1>
+                <h1 class="contacts-title">Contactos Bancarios</h1>
             </div>
             
             <table class="contacts-table">
                 <thead>
                     <tr>
-                        <th>Nombre</th>
-                        <th>Email</th>
-                        <th>Teléfono</th>
+                        <th>Alias</th>
+                        <th>Número de Cuenta</th>
+                        <th>Descripción</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Juan Pérez</td>
-                        <td>juan.perez@example.com</td>
-                        <td>+1 234 567 8901</td>
+                    <tr data-id="1" data-date="2025-05-20T10:30:00Z">
+                        <td>Miller Arias</td>
+                        <td>34667890123456789012</td>
+                        <td>Le encantan los Napolitanos</td>
                         <td class="contact-actions">
                             <button class="btn-action btn-view" title="Ver"><i class="fas fa-eye"></i></button>
-                            <button class="btn-action btn-edit" title="Editar"><i class="fas fa-edit"></i></button>
                             <button class="btn-action btn-delete" title="Eliminar"><i class="fas fa-trash"></i></button>
                         </td>
                     </tr>
-                    <tr>
-                        <td>María García</td>
-                        <td>maria.garcia@example.com</td>
-                        <td>+1 987 654 3210</td>
+                    <tr data-id="2" data-date="2025-05-21T14:15:00Z">
+                        <td>Leonardo DiCaprio</td>
+                        <td>45678901234567890123</td>
+                        <td>El lobo de PDVSA</td>
                         <td class="contact-actions">
                             <button class="btn-action btn-view" title="Ver"><i class="fas fa-eye"></i></button>
-                            <button class="btn-action btn-edit" title="Editar"><i class="fas fa-edit"></i></button>
-                            <button class="btn-action btn-delete" title="Eliminar"><i class="fas fa-trash"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Carlos López</td>
-                        <td>carlos.lopez@example.com</td>
-                        <td>+1 555 123 4567</td>
-                        <td class="contact-actions">
-                            <button class="btn-action btn-view" title="Ver"><i class="fas fa-eye"></i></button>
-                            <button class="btn-action btn-edit" title="Editar"><i class="fas fa-edit"></i></button>
                             <button class="btn-action btn-delete" title="Eliminar"><i class="fas fa-trash"></i></button>
                         </td>
                     </tr>
@@ -69,6 +54,7 @@
                 <i class="fas fa-plus"></i>
             </button>
             
+            <!-- Modal para Contactos -->
             <div class="modal" id="contactModal">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -77,23 +63,19 @@
                     </div>
                     
                     <div class="modal-body" id="modalBody">
-                        <!-- Contenido dinámico según el tipo de modal -->
+                        <!-- Formulario para agregar/editar -->
                         <form id="contactForm" class="modal-form">
                             <div class="form-group">
-                                <label for="contactName">Nombre</label>
-                                <input type="text" id="contactName" name="name" required>
+                                <label for="contactAlias">Alias</label>
+                                <input type="text" id="contactAlias" name="alias" required>
                             </div>
                             <div class="form-group">
-                                <label for="contactEmail">Email</label>
-                                <input type="email" id="contactEmail" name="email" required>
+                                <label for="contactAccount">Número de Cuenta</label>
+                                <input type="text" id="contactAccount" name="account" required>
                             </div>
                             <div class="form-group">
-                                <label for="contactPhone">Teléfono</label>
-                                <input type="tel" id="contactPhone" name="phone">
-                            </div>
-                            <div class="form-group">
-                                <label for="contactMessage">Mensaje</label>
-                                <textarea id="contactMessage" name="message" required></textarea>
+                                <label for="contactDescription">Descripción</label>
+                                <textarea id="contactDescription" name="description" required></textarea>
                             </div>
                             <input type="hidden" id="contactId">
                             
@@ -103,25 +85,22 @@
                             </div>
                         </form>
                         
+                        <!-- Vista de detalles -->
                         <div id="viewContent" class="contact-view" style="display:none;">
                             <div class="contact-info">
-                                <label>Nombre:</label>
-                                <p id="viewName"></p>
+                                <label>Alias:</label>
+                                <p id="viewAlias"></p>
                             </div>
                             <div class="contact-info">
-                                <label>Email:</label>
-                                <p id="viewEmail"></p>
+                                <label>Número de Cuenta:</label>
+                                <p id="viewAccount"></p>
                             </div>
                             <div class="contact-info">
-                                <label>Teléfono:</label>
-                                <p id="viewPhone"></p>
+                                <label>Descripción:</label>
+                                <p id="viewDescription"></p>
                             </div>
                             <div class="contact-info">
-                                <label>Mensaje:</label>
-                                <p id="viewMessage"></p>
-                            </div>
-                            <div class="contact-info">
-                                <label>Fecha:</label>
+                                <label>Fecha de Registro:</label>
                                 <p id="viewDate"></p>
                             </div>
                             
@@ -134,8 +113,7 @@
                         </div>
                     </div>
                 </div>
-            </div>         
-            
+            </div>
         </main>
 
         <footer class="bank-footer">

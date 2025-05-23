@@ -14,16 +14,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const editViewBtn = document.getElementById('editViewBtn');
     
     // Campos del formulario
-    const contactName = document.getElementById('contactName');
-    const contactEmail = document.getElementById('contactEmail');
-    const contactPhone = document.getElementById('contactPhone');
-    const contactMessage = document.getElementById('contactMessage');
+    const contactAlias = document.getElementById('contactAlias');
+    const contactAccount = document.getElementById('contactAccount');
+    const contactDescription = document.getElementById('contactDescription');
     
     // Campos de vista
-    const viewName = document.getElementById('viewName');
-    const viewEmail = document.getElementById('viewEmail');
-    const viewPhone = document.getElementById('viewPhone');
-    const viewMessage = document.getElementById('viewMessage');
+    const viewAlias = document.getElementById('viewAlias');
+    const viewAccount = document.getElementById('viewAccount');
+    const viewDescription = document.getElementById('viewDescription');
     const viewDate = document.getElementById('viewDate');
     
     // Variable para mantener los datos del contacto actual
@@ -73,10 +71,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const formData = {
             id: contactIdInput.value,
-            name: contactName.value,
-            email: contactEmail.value,
-            phone: contactPhone.value,
-            message: contactMessage.value
+            alias: contactAlias.value,
+            account: contactAccount.value,
+            description: contactDescription.value,
+            date: new Date().toISOString()
         };
         
         if (!validateContactForm(formData)) return;
@@ -89,7 +87,11 @@ document.addEventListener('DOMContentLoaded', function() {
             closeModal();
             
             // Aquí deberías actualizar la lista de contactos
-            // Ejemplo: loadContacts();
+            if (isEdit) {
+                updateContactInTable(formData);
+            } else {
+                addContactToTable(formData);
+            }
         }, 1000);
     });
 
@@ -100,10 +102,9 @@ document.addEventListener('DOMContentLoaded', function() {
         viewContent.style.display = 'none';
         
         contactIdInput.value = contactData.id || '';
-        contactName.value = contactData.name || '';
-        contactEmail.value = contactData.email || '';
-        contactPhone.value = contactData.phone || '';
-        contactMessage.value = contactData.message || '';
+        contactAlias.value = contactData.alias || '';
+        contactAccount.value = contactData.account || '';
+        contactDescription.value = contactData.description || '';
         
         // Guardar los datos actuales
         currentContactData = contactData;
@@ -120,10 +121,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Guardar los datos del contacto actual
         currentContactData = contactData;
         
-        viewName.textContent = contactData.name || 'No especificado';
-        viewEmail.textContent = contactData.email || 'No especificado';
-        viewPhone.textContent = contactData.phone || 'No especificado';
-        viewMessage.textContent = contactData.message || 'No especificado';
+        viewAlias.textContent = contactData.alias || 'No especificado';
+        viewAccount.textContent = contactData.account || 'No especificado';
+        viewDescription.textContent = contactData.description || 'No especificado';
         viewDate.textContent = formatDate(contactData.date) || 'No especificado';
         
         openModal();
@@ -138,18 +138,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Funciones auxiliares
     function validateContactForm(data) {
-        if (!data.name || data.name.length < 2) {
-            alert('El nombre debe tener al menos 2 caracteres');
+        if (!data.alias || data.alias.length < 3) {
+            alert('El alias debe tener al menos 3 caracteres');
             return false;
         }
         
-        if (!data.email || !data.email.includes('@')) {
-            alert('Por favor ingresa un email válido');
+        if (!data.account || data.account.length < 10) {
+            alert('El número de cuenta debe tener al menos 10 dígitos');
             return false;
         }
         
-        if (!data.message || data.message.length < 10) {
-            alert('El mensaje debe tener al menos 10 caracteres');
+        if (!data.description || data.description.length < 5) {
+            alert('La descripción debe tener al menos 5 caracteres');
             return false;
         }
         
@@ -174,48 +174,63 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Asignar eventos a los botones de la tabla
-    document.querySelectorAll('.btn-view').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const row = this.closest('tr');
+    // Función para agregar contacto a la tabla
+    function addContactToTable(contactData) {
+        const tbody = document.querySelector('.contacts-table tbody');
+        const newRow = document.createElement('tr');
+        newRow.dataset.id = Date.now(); // ID temporal
+        newRow.dataset.date = contactData.date;
+        
+        newRow.innerHTML = `
+            <td>${contactData.alias}</td>
+            <td>${contactData.account}</td>
+            <td>${contactData.description}</td>
+            <td class="contact-actions">
+                <button class="btn-action btn-view" title="Ver"><i class="fas fa-eye"></i></button>
+                <button class="btn-action btn-delete" title="Eliminar"><i class="fas fa-trash"></i></button>
+            </td>
+`;
+        
+        tbody.appendChild(newRow);
+        addRowEventListeners(newRow);
+    }
+
+    // Función para actualizar contacto en la tabla
+    function updateContactInTable(contactData) {
+        const row = document.querySelector(`tr[data-id="${contactData.id}"]`);
+        if (row) {
+            row.cells[0].textContent = contactData.alias;
+            row.cells[1].textContent = contactData.account;
+            row.cells[2].textContent = contactData.description;
+        }
+    }
+
+    // Asignar eventos a las filas de la tabla
+    function addRowEventListeners(row) {
+        // Botón Ver
+        row.querySelector('.btn-view').addEventListener('click', function() {
             const contactData = {
-                id: row.dataset.id || '',
-                name: row.cells[0].textContent,
-                email: row.cells[1].textContent,
-                phone: row.cells[2].textContent,
-                message: row.dataset.message || "Mensaje de ejemplo",
-                date: row.dataset.date || new Date().toISOString()
+                id: row.dataset.id,
+                alias: row.cells[0].textContent,
+                account: row.cells[1].textContent,
+                description: row.cells[2].textContent,
+                date: row.dataset.date
             };
-            
             openViewModal(contactData);
         });
-    });
-    
-    document.querySelectorAll('.btn-edit').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const row = this.closest('tr');
-            const contactData = {
-                id: row.dataset.id || '',
-                name: row.cells[0].textContent,
-                email: row.cells[1].textContent,
-                phone: row.cells[2].textContent,
-                message: row.dataset.message || "Mensaje de ejemplo"
-            };
-            
-            openEditModal(contactData);
-        });
-    });
-
-    // Evento para botones de eliminar (ejemplo básico)
-    document.querySelectorAll('.btn-delete').forEach(btn => {
-        btn.addEventListener('click', function() {
+        
+        // Botón Eliminar
+        row.querySelector('.btn-delete').addEventListener('click', function() {
             if (confirm('¿Estás seguro de que deseas eliminar este contacto?')) {
-                const row = this.closest('tr');
-                // Aquí iría la lógica para eliminar el contacto
                 row.remove();
                 alert('Contacto eliminado correctamente');
             }
         });
+    }
+
+    // Asignar eventos a las filas existentes
+    document.querySelectorAll('.contacts-table tbody tr').forEach(row => {
+        addRowEventListeners(row);
     });
 });
 
