@@ -987,13 +987,6 @@ input:valid, textarea:valid {
     display: block;
 }
 
-/* Efectos para el modal */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-
 /* Validación */
 input:invalid {
     border-color: #ffcdd2;
