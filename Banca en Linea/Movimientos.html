@@ -29,7 +29,7 @@
                     <span class="account-number">Número de cuenta: 0106****808</span>
                 </div>
                 <div class="balance-amount">
-                    <span class="amount">$12,345.67</span>
+                    <span class="amount balance-amount-value">$12,345.67</span>
                     <button id="toggleBalance" class="balance-toggle">
                         <i class="fas fa-lock"></i>
                     </button>
@@ -39,11 +39,6 @@
             <section class="transactions-section">
                 <div class="transactions-header">
                     <h2>Movimientos</h2>
-                    <div class="transaction-filters">
-                        <button class="filter-btn active" data-filter="all">Todos</button>
-                        <button class="filter-btn" data-filter="credit">Créditos</button>
-                        <button class="filter-btn" data-filter="debit">Débitos</button>
-                    </div>
                 </div>
                 <div class="transactions-container">
                     <div class="transactions-scroll">
@@ -53,46 +48,11 @@
                                     <th>Referencia</th>
                                     <th>Descripción</th>
                                     <th>Fecha</th>
-                                    <th>Tipo</th>
                                     <th>Monto</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr class="transaction" data-type="debit">
-                                    <td class="reference">#3012</td>
-                                    <td class="description">Compra en Amazon</td>
-                                    <td class="date">03/03/2025 02:47am</td>
-                                    <td class="type">Débito</td>
-                                    <td class="amount negative">-200.23</td>
-                                </tr>
-                                <tr class="transaction" data-type="credit">
-                                    <td class="reference">#3011</td>
-                                    <td class="description">Depósito nómina</td>
-                                    <td class="date">03/03/2025 02:47am</td>
-                                    <td class="type">Crédito</td>
-                                    <td class="amount positive">+1,000.03</td>
-                                </tr>
-                                <tr class="transaction" data-type="debit">
-                                    <td class="reference">#3009</td>
-                                    <td class="description">Restaurante Italiano</td>
-                                    <td class="date">03/03/2025 02:47am</td>
-                                    <td class="type">Débito</td>
-                                    <td class="amount negative">-10.80</td>
-                                </tr>
-                                <tr class="transaction" data-type="debit">
-                                    <td class="reference">#3008</td>
-                                    <td class="description">Gasolinera</td>
-                                    <td class="date">02/03/2025 17:30pm</td>
-                                    <td class="type">Débito</td>
-                                    <td class="amount negative">-700.00</td>
-                                </tr>
-                                <tr class="transaction" data-type="credit">
-                                    <td class="reference">#3007</td>
-                                    <td class="description">Transferencia recibida</td>
-                                    <td class="date">01/03/2025 12:00pm</td>
-                                    <td class="type">Crédito</td>
-                                    <td class="amount positive">+2,000.00</td>
-                                </tr>
+                            <tbody id="transactions-body">
+                            <!--Las transacciones se cargarán acá-->
                             </tbody>
                         </table>
                     </div>
@@ -104,7 +64,7 @@
             <p>© 2025 Banco Universitario. Todos los derechos reservados.</p>
         </footer>
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="scriptMBanca.js"></script>
     <script src="include.js"></script>
 </body>

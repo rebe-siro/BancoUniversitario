@@ -1,5 +1,64 @@
 <!DOCTYPE html>
 <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registro - Banca en Línea</title>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="stylesRegistrarse.css">
+    </head>
+        <body>
+            <div class="bank-container">
+                <header class="bank-header">
+                    <div class="logo-container">
+                        <img src="GRAFICOS BANCA/logo-no-background-01.png" alt="Logo del banco" class="bank-logo">
+                    </div>
+                </header>
+                <div class="container">
+                    <h2>Registro En Línea</h2>
+                    <form id="registro-form">
+                        <div class="input-group">
+                            <label for="first_name">Nombre</label>
+                            <input type="text" placeholder="Nombre" id="first_name" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="last_name">Apellido</label>
+                            <input type="text" placeholder="Apellido" id="last_name" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="documento">Número de documento</label>
+                            <input type="text" placeholder="Número de documento" id="documento" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="fechaNacimiento">Fecha de nacimiento</label>
+                            <input type="date" id="fechaNacimiento" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="telefono">Teléfono de contacto</label>
+                            <input type="tel" placeholder="Número de Teléfono" id="telefono" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="correo">Correo electrónico</label>
+                            <input type="email" placeholder="Correo electrónico" id="correo" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="contrasena">Contraseña</label>
+                            <input type="password" placeholder="Contraseña" id="contrasena" required>
+                        </div>
+                        <div class="button-group">
+                            <button type="submit" id="registrarse">Registrarse</button>
+                        </div>
+                    </form>
+                </div>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script src="scriptRegistrarse.js"></script>
+            </div>
+        </body>
+</html>
+
+
+<!--<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,29 +83,33 @@
             <h2>Registro En Línea</h2>
             <form id="registro-form">
               <div class="input-group">
-                <input type="text" placeholder="Nombre Completo" id="nombreCompleto">
-                <select id="universidad">
-                  <option value="" disabled selected>Universidad de estudio</option>
-                  <option value="uni1">UCLA</option>
-                  <option value="uni2">UNEXPO</option>
-                  <option value="uni3">IUAJS</option>
-                  <option value="uni4">IUJO</option>
-                  <option value="uni5">IUAM</option>
-                </select>
-              </div>
-              <div class="input-group">
-                <input type="email" placeholder="Correo electrónico institucional" id="correo">
-                <input type="tel" placeholder="Teléfono de contacto" id="telefono">
-              </div>
-              <div class="input-group">
-                <input type="text" placeholder="Nombre de usuario" id="usuario">
-                <input type="password" placeholder="Contraseña" id="contrasena">
-              </div>
-              <div class="button-group">
-                <button type="button" id="limpiar">Limpiar</button>
-                <a href="#" id="terminos">Leer términos y condiciones</a>
-                <button type="submit" id="registrarse">Registrarse</button>
-              </div>
+                  <input type="text" placeholder="Nombre Completo" id="nombreCompleto">
+                  <select id="universidad">
+                    <option value="" disabled selected>Universidad de estudio</option>
+                    <option value="uni1">UCLA</option>
+                    <option value="uni2">UNEXPO</option>
+                    <option value="uni3">IUAJS</option>
+                    <option value="uni4">IUJO</option>
+                    <option value="uni5">IUAM</option>
+                  </select>
+                </div>
+                <div class="input-group">
+                  <input type="email" placeholder="Correo electrónico institucional" id="correo">
+                  <input type="tel" placeholder="Teléfono de contacto" id="telefono">
+                </div>
+                <div class="input-group">
+                  <input type="text" placeholder="Nombre de usuario" id="usuario">
+                  <input type="password" placeholder="Contraseña" id="contrasena">
+                </div>
+                <div class="input-group">
+                  <input type="text" placeholder="Número de documento" id="documento">
+                  <input type="date" placeholder="Fecha de nacimiento" id="fechaNacimiento">
+                </div>
+                <div class="button-group">
+                  <button type="button" id="limpiar">Limpiar</button>
+                  <a href="#" id="terminos">Leer términos y condiciones</a>
+                  <button type="submit" id="registrarse">Registrarse</button>
+                </div>
             </form>
           </div>
         
@@ -66,3 +129,6 @@
           <script src="scriptRegistrarse.js"></script>
 </body>
 </html>
+-->
+
+
