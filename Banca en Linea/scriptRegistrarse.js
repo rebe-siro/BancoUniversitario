@@ -29,57 +29,27 @@ $(document).ready(function() {
                 if (data.message === "OK") {
                     alert('¡Registro exitoso!');
                 } else {
-                    alert('Error en el registro: ' + (data.message || ''));
+                    alert((data.message || ''));
                 }
             },
             error: function(xhr) {
-                let msg = 'Error al registrar usuario.';
-                if (xhr.responseJSON && xhr.responseJSON.message) {
-                    msg += '\n' + xhr.responseJSON.message;
-                }
-                alert(msg);
-                console.error('Register error:', xhr.responseText);
+                    let msg = 'Error al registrar usuario.';
+                    if (xhr.responseJSON.message.toLowerCase().includes('éxito') || xhr.responseJSON.message.toLowerCase().includes('exito')) {
+                        msg += '\n' + xhr.responseJSON.message;
+                        // Workaround: treat as success if message indicates success
+                        if (xhr.responseJSON.message.toLowerCase().includes('exito')) {
+                            alert('¡Registro exitoso!');
+                            return;
+                        }
+                    }
+                    alert(msg);
+                    console.error('Register error:', xhr.responseText);
+                    console.error('Status:', xhr.status);
+                    console.error('XHR object:', xhr);
             }
         });
     });
 });
 
 
-/*document.getElementById('registro-form').addEventListener('submit', function (e) {
-    e.preventDefault();
 
-    const first_name = document.getElementById('first_name').value.trim();
-    const last_name = document.getElementById('last_name').value.trim();
-    const document_number = document.getElementById('documento').value.trim();
-    const birth_date = document.getElementById('fechaNacimiento').value;
-    const phone_number = document.getElementById('telefono').value.trim();
-    const email = document.getElementById('correo').value.trim();
-    const password = document.getElementById('contrasena').value;
-
-    fetch('http://localhost:3000/v1/public/client/user/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            first_name,
-            last_name,
-            document_number,
-            birth_date,
-            phone_number,
-            email,
-            password
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-        if (data.message === "OK") {
-            alert('¡Registro exitoso!');
-        } else {
-            alert('Error en el registro: ' + (data.message || ''));
-        }
-    })
-    .catch(error => {
-        alert('Error al registrar usuario.');
-        console.error('Register error:', error);
-    });
-}); */
