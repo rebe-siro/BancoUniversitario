@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banca en Línea</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="StyleMBanca.css">
+
+</head>
+<body>
+        <div class="bank-container">
+        <div w3-include-html="menu.html"></div>
+
+        <main class="transfer-container">
+            <div class="transfer-header">
+                <h1><i class="fas fa-exchange-alt"></i> Realizar Transferencia</h1>
+            </div>
+            
+            <div class="transfer-card">
+                <form id="transferForm">
+                    <div class="form-group">
+                        <label for="accountNumber">Número de Cuenta Destino</label>
+                        <div class="input-with-icon">
+                            <input type="text" id="accountNumber" pattern="[0-9]{20}" 
+                                   title="Debe contener 20 dígitos" required
+                                   placeholder="Ingrese los 20 dígitos de la cuenta">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="amount">Monto a Transferir</label>
+                        <div class="input-with-icon">
+                            <input type="number" id="amount" min="1" step="0.01" required
+                                   placeholder="0.00">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description">Descripción</label>
+                        <div class="input-with-icon">
+                            <input type="text" id="description" maxlength="50" required
+                                   placeholder="Ej: Pago de servicios">
+                            <i class="fas fa-comment-alt"></i>
+                        </div>
+                        <small class="char-counter"><span id="charCount">0</span>/50 caracteres</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="referenceNumber">Número de Referencia (Opcional)</label>
+                        <input type="text" id="referenceNumber" 
+                               placeholder="Para tu control personal">
+                    </div>
+                    
+                    <div class="transfer-summary">
+                        <h3>Resumen de Transferencia</h3>
+                        <div class="summary-item">
+                            <span>Cuenta Destino:</span>
+                            <span id="summaryAccount">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Monto:</span>
+                            <span id="summaryAmount">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Descripción:</span>
+                            <span id="summaryDescription">-</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="cancelTransfer">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Confirmar Transferencia</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+        
+        <!-- Modal de confirmación -->
+        <div class="modal" id="confirmModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Confirmar Transferencia</h2>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="confirmation-details">
+                        <p>¿Estás seguro de realizar esta transferencia?</p>
+                        <div class="detail-item">
+                            <strong>Cuenta Destino:</strong>
+                            <span id="confirmAccount"></span>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Monto:</strong>
+                            <span id="confirmAmount"></span>
+                        </div>
+                        <div class="detail-item">
+                            <strong>Descripción:</strong>
+                            <span id="confirmDescription"></span>
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-secondary" id="cancelConfirm">Volver</button>
+                        <button type="button" class="btn btn-primary" id="executeTransfer">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal de éxito -->
+        <div class="modal" id="successModal">
+            <div class="modal-content success-content">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>¡Transferencia Exitosa!</h2>
+                <div class="success-details">
+                    <p>Tu transferencia se ha completado correctamente.</p>
+                    <div class="detail-item">
+                        <strong>Número de Transacción:</strong>
+                        <span id="transactionNumber">TRX-20230524-001</span>
+                    </div>
+                    <div class="detail-item">
+                        <strong>Fecha y Hora:</strong>
+                        <span id="transactionDate">24/05/2023 15:30:45</span>
+                    </div>
+                    <center><button type="button" class="btn btn-primary" id="closeSuccess">Aceptar</button></center>
+                </div>
+                
+            </div>
+        </div>
+    
+        <footer class="bank-footer">
+            <p>© 2025 Banco Universitario. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scriptMBanca.js"></script>
+    <script src="include.js"></script>
+    <script src="Transferencia.js"></script>
+</body>
+</html>
