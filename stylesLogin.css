@@ -241,6 +241,8 @@ label {
 }
 
 .links a {
+    margin-top: -25px;
+    margin-bottom: 20px;
     text-align: center;
     display: flex;
     justify-content: center;

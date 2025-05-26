@@ -71,8 +71,9 @@ body {
   
   .button-group {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
+    gap: 10px;
   }
   
   #limpiar {
@@ -96,7 +97,8 @@ body {
     border: 2px solid #00565e;
     padding: 10px 20px;
     font-weight: bold;
-    cursor: pointer;
+    cursor: pointer;    
+    background-color: #d5d5d5;
   }
 
 #limpiar,
@@ -104,6 +106,11 @@ body {
 #terminos {
     font-size: 16px;
     padding: 12px 25px;
+    background-color: #ffffff;
+}
+
+#registrarse:hover {
+    background-color: #e4fff7;
 }
 
 /* Contenedor principal */
@@ -251,4 +258,20 @@ body {
       padding: 0.5rem;
       font-size: 0.9rem;
   }
+}
+
+#volver {
+    background-color: #ccc;
+    color: #333;
+    border: none;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+
+#volver:hover {
+    background-color: #bbb;
 }

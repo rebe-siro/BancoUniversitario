@@ -1,10 +1,10 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
     const token = localStorage.getItem('token');
     if (!token) {
         alert('You must log in first.');
         window.location.href = '../Login.html';
         return;
-    }
+    }*/
 
     $.ajax({
         url: 'http://localhost:3000/v1/client/movement?page=1&page_size=20&multiplier=1',
@@ -69,6 +69,10 @@ $(document).ready(function() {
         }
 
     });
+
+    accountNumber = localStorage.getItem('account_number') || '';
+    firstName = localStorage.getItem('first_name') || '';
+    lastName = localStorage.getItem('last_name') || '';
 
     // Mostrar/Quitar Visibilidad del Balance
     $('#toggleBalance').on('click', function() {
