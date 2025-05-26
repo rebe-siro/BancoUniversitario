@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banca en Línea</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="StyleMBanca.css">
+
+</head>
+<body>
+        <div class="bank-container">
+        <div w3-include-html="menu.html"></div>
+
+        <main class="user-profile-container">
+            <div class="profile-header">
+                <h1><i class="fas fa-user-circle"></i> Información de Usuario</h1>
+            </div>
+            
+            <div class="profile-card">
+                <div class="profile-info">
+                    <div class="info-row">
+                        <span class="info-label">Nombre:</span>
+                        <span class="info-value">Miller</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Apellido:</span>
+                        <span class="info-value">Arias</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Número de Cuenta:</span>
+                        <span class="info-value">0123-4567-8910-2345</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Correo Electrónico:</span>
+                        <span class="info-value">mnoearias0902@gmail.com</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Documento de Identidad:</span>
+                        <span class="info-value">29.561.941</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Teléfono:</span>
+                        <span class="info-value">+58 412-5559977</span>
+                    </div>
+                    <div class="info-row password-row">
+                        <span class="info-label">Contraseña:</span>
+                        <span class="info-value password-value">••••••••</span>
+                        <button class="btn-change-password" id="changePasswordBtn">
+                            Cambiar contraseña <i class="fas fa-edit"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Modal para cambiar contraseña -->
+        <div class="modal" id="passwordModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Cambiar Contraseña</h2>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="passwordForm">
+                        <div class="form-group">
+                            <label for="currentPassword">Contraseña Actual</label>
+                            <div class="password-input-container">
+                                <input type="password" id="currentPassword" required>
+                                <i class="fas fa-eye toggle-password" data-target="currentPassword"></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword">Nueva Contraseña</label>
+                            <div class="password-input-container">
+                                <input type="password" id="newPassword" required minlength="8">
+                                <i class="fas fa-eye toggle-password" data-target="newPassword"></i>
+                            </div>
+                            <small class="password-hint">Mínimo 8 caracteres</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirmar Nueva Contraseña</label>
+                            <div class="password-input-container">
+                                <input type="password" id="confirmPassword" required minlength="8">
+                                <i class="fas fa-eye toggle-password" data-target="confirmPassword"></i>
+                            </div>
+                        </div>
+                        <div class="modal-actions">
+                            <button type="button" class="btn btn-secondary" id="cancelPasswordChange">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Aceptar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <footer class="bank-footer">
+            <p>© 2025 Banco Universitario. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scriptMBanca.js"></script>
+    <script src="include.js"></script>
+    <script src="perfil.js"></script>
+</body>
+</html>
