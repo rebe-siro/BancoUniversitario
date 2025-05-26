@@ -861,3 +861,299 @@ input:valid, textarea:valid {
     from { opacity: 1; }
     to { opacity: 0; }
 }
+
+/* Estilos para la vista de información de usuario */
+
+.user-profile-container {
+    padding: 2rem;
+    flex: 1;
+}
+
+.profile-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.profile-header h1 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.profile-card {
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.info-row {
+    display: flex;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--light-gray);
+    align-items: center;
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    font-weight: 600;
+    color: var(--primary-color);
+    min-width: 200px;
+    font-size: 1rem;
+}
+
+.info-value {
+    flex: 1;
+    color: var(--dark-gray);
+}
+
+.password-row {
+    position: relative;
+    padding-right: 200px;
+}
+
+.password-value {
+    letter-spacing: 2px;
+    font-family: monospace;
+}
+
+.btn-change-password {
+    padding: 0.4rem 0.8rem; /* Ajusta el tamaño del botón */
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 4px; /* Unifica con btn-back-menu */
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem; /* Tamaño del texto */
+    display: flex;
+    align-items: center;
+    gap: 0.4rem; /* Espacio entre texto e ícono */
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-change-password:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+}
+
+/* Estilos específicos para el modal de contraseña */
+#passwordModal .modal-content {
+    max-width: 500px;
+}
+
+.password-input-container {
+    position: relative;
+}
+
+.password-input-container input {
+    padding-right: 40px;
+    width: 100%;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--dark-gray);
+}
+
+.toggle-password:hover {
+    color: var(--primary-color);
+}
+
+.password-hint {
+    color: var(--dark-gray);
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+    display: block;
+}
+
+/* Validación */
+input:invalid {
+    border-color: #ffcdd2;
+}
+
+input:valid {
+    border-color: #c8e6c9;
+}
+
+/* Estilos para la vista de transferencias */
+
+.transfer-container {
+    padding: 2rem;
+    flex: 1;
+}
+
+.transfer-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.transfer-header h1 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.transfer-card {
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon i {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--dark-gray);
+}
+
+.input-with-icon input {
+    padding-right: 40px;
+    width: 100%;
+}
+
+.char-counter {
+    color: var(--dark-gray);
+    font-size: 0.8rem;
+    text-align: right;
+    display: block;
+    margin-top: 0.3rem;
+}
+
+.transfer-summary {
+    background-color: var(--light-gray);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.transfer-summary h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--table-border);
+}
+
+.summary-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Estilos para los modales de transferencia */
+.confirmation-details {
+    margin-bottom: 1.5rem;
+}
+
+.confirmation-details p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.detail-item {
+    margin-bottom: 1rem;
+}
+
+.detail-item strong {
+    color: var(--primary-color);
+    display: inline-block;
+    min-width: 120px;
+}
+
+/* Modal de éxito */
+.success-content {
+    text-align: center;
+    max-width: 500px;
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: var(--positive-color);
+    margin-bottom: 1.5rem;
+}
+
+.success-icon i {
+    animation: bounceIn 0.5s;
+}
+
+.success-details {
+    background-color: var(--light-gray);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    text-align: left;
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    70% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+.btn-back-menu {
+    padding: 0.4rem 0.8rem; /* Reduce el tamaño del botón */
+    background-color: var(--light-gray);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem; /* Ajusta el tamaño del texto */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-back-menu:hover {
+    background-color: #d0d7dc;
+    transform: translateY(-2px); /* Añade un ligero efecto al pasar el mouse */
+}
+
+.contianerBtn {
+    position: relative;
+    display: flex;
+    justify-content: flex-end; /* Alinea los botones al lado derecho */
+    gap: 0.8rem; /* Espacio entre los botones */
+    padding: 1rem; /* Añade un margen interno al contenedor */
+}
