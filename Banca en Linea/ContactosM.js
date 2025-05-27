@@ -1,255 +1,221 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Elementos del DOM
-    const contactModal = document.getElementById('contactModal');
-    const modalTitle = document.getElementById('modalTitle');
-    const contactForm = document.getElementById('contactForm');
-    const viewContent = document.getElementById('viewContent');
-    const contactIdInput = document.getElementById('contactId');
-    
-    // Botones
-    const addContactBtn = document.getElementById('addContactBtn');
-    const cancelBtn = document.getElementById('cancelBtn');
-    const closeViewBtn = document.getElementById('closeViewBtn');
-    const submitBtn = document.getElementById('submitBtn');
-    const editViewBtn = document.getElementById('editViewBtn');
-    
-    // Campos del formulario
-    const contactAlias = document.getElementById('contactAlias');
-    const contactAccount = document.getElementById('contactAccount');
-    const contactDescription = document.getElementById('contactDescription');
-    
-    // Campos de vista
-    const viewAlias = document.getElementById('viewAlias');
-    const viewAccount = document.getElementById('viewAccount');
-    const viewDescription = document.getElementById('viewDescription');
-    const viewDate = document.getElementById('viewDate');
-    
-    // Variable para mantener los datos del contacto actual
-    let currentContactData = null;
 
-    // Funciones para manejar el modal
-    function openModal() {
-        contactModal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+
+
+ $(document).ready(function() {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        alert('Debes iniciar sesión primero.');
+        window.location.href = '../Login.html';
+        return;
     }
 
-    function closeModal() {
-        contactModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-        contactForm.reset();
+
+    // Botón flotante para abrir el modal de agregar contacto
+    $('#addContactBtn').on('click', function() {
+        $('#modalTitle').text('Agregar Nuevo Contacto');
+        $('#contactForm')[0].reset();
+        $('#contactId').val('');
+        $('#contactModal').show();
+        $('#contactForm').show();
+        $('#viewContent').hide();
+    });
+
+    // Función para cargar contactos
+    function cargarContactos() {
+        $.ajax({
+            url: 'http://localhost:3000/v1/client/contact',
+            type: 'GET',
+            headers: {
+                'Authorization': 'Bearer ' + token
+            },
+            success: function(response) {
+                const contactos = response.data || [];
+                const $tbody = $('#contacts-body');
+                $tbody.empty();
+
+                if (contactos.length === 0) {
+                    $tbody.append('<tr><td colspan="5">No tienes contactos guardados.</td></tr>');
+                } else {
+                    contactos.forEach(function(contact) {
+                        const row = `
+                            <tr>
+                                <td>${contact.alias || ''}</td>
+                                <td>${contact.account_number || ''}</td>
+                                <td>${contact.description || ''}</td>
+                                <td>
+                                    <button class="edit-btn btn-edit-view btn-action" data-id="${contact.id}">Editar</button>
+                                    <button class="delete-btn btn-edit-view btn-action btn-secondary" data-id="${contact.id}">Eliminar<i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        `;
+                        $tbody.append(row);
+                    });
+                }
+            },
+            error: function(xhr) {
+                alert('No se pudieron cargar los contactos.');
+                console.error(xhr.responseText);
+            }
+        });
     }
 
-    // Eventos para abrir/cerrar modal
-    addContactBtn?.addEventListener('click', function() {
-        modalTitle.textContent = 'Agregar Nuevo Contacto';
-        contactForm.style.display = 'block';
-        viewContent.style.display = 'none';
-        contactIdInput.value = '';
-        openModal();
-    });
+    cargarContactos();
 
-    cancelBtn?.addEventListener('click', closeModal);
-    closeViewBtn?.addEventListener('click', closeModal);
-
-    // Cerrar al hacer clic fuera del modal
-    contactModal.addEventListener('click', function(e) {
-        if (e.target === contactModal) {
-            closeModal();
-        }
-    });
-
-    // Cerrar con la tecla ESC
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && contactModal.style.display === 'flex') {
-            closeModal();
-        }
-    });
-
-    // Manejar envío del formulario
-    contactForm.addEventListener('submit', function(e) {
+    // Agregar o actualizar contacto
+    $('#contactForm').on('submit', function(e) {
         e.preventDefault();
-        
-        const formData = {
-            id: contactIdInput.value,
-            alias: contactAlias.value,
-            account: contactAccount.value,
-            description: contactDescription.value,
-            date: new Date().toISOString()
+        const id = $('#contactId').val();
+        const alias = $('#contactAlias').val().trim();
+        const account_number = $('#contactAccountNumber').val().trim();
+        const description = $('#contactDescription').val().trim();
+
+        if (!alias || !account_number) {
+            alert('Alias y número de cuenta son obligatorios.');
+            return;
+        }
+
+        const isEdit = !!id;
+        const ajaxOptions = {
+            url: isEdit ? `http://localhost:3000/v1/client/contact/${id}` : 'http://localhost:3000/v1/client/contact',
+            type: isEdit ? 'PATCH' : 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + token,
+                'Content-Type': 'application/json'
+            },
+            data: JSON.stringify({
+                alias,
+                account_number,
+                description: description || null
+            }),
+            success: function() {
+                alert(isEdit ? 'Contacto actualizado.' : 'Contacto agregado exitosamente.');
+                $('#contactForm')[0].reset();
+                $('#contactId').val('');
+                $('#contactForm').removeAttr('data-editing');
+                cargarContactos();
+            },
+            error: function(xhr) {
+                alert(isEdit ? 'Error al actualizar contacto.' : 'Error al agregar contacto.');
+                console.error(xhr.responseText);
+            }
         };
-        
-        if (!validateContactForm(formData)) return;
-        
-        const isEdit = !!formData.id;
-        
-        // Simular llamada a API
-        setTimeout(() => {
-            alert(isEdit ? 'Contacto actualizado exitosamente' : 'Contacto creado exitosamente');
-            closeModal();
+        $.ajax(ajaxOptions);
+    });
+
+    // Editar contacto (cargar datos en el formulario)
+    $(document).on('click', '.edit-btn', function() {
+        const id = $(this).data('id');
+        $.ajax({
+            url: `http://localhost:3000/v1/client/contact/${id}`,
+            type: 'GET',
+            headers: {
+                'Authorization': 'Bearer ' + token
+            },
+            success: function(response) {
+                const contact = response.data;
+                $('#contactId').val(contact.id);
+                $('#contactAlias').val(contact.alias);
+                $('#contactAccountNumber').val(contact.account_number);
+                $('#contactDescription').val(contact.description || '');
+                $('#contactForm').attr('data-editing', 'true');
+                $('#modalTitle').text('Editar Contacto');
+                $('#contactModal').show();
+                $('#contactForm').show();
+                $('#viewContent').hide();
+            },
+            error: function(xhr) {
+                alert('No se pudo cargar el contacto.');
+                console.error(xhr.responseText);
+            }
+        });
+    });
+
+    // Eliminar contacto
+    $(document).on('click', '.delete-btn', function() {
+        const id = $(this).data('id');
+        if (confirm('¿Seguro que deseas eliminar este contacto?')) {
+            $.ajax({
+                url: `http://localhost:3000/v1/client/contact/${id}`,
+                type: 'DELETE',
+                headers: {
+                    'Authorization': 'Bearer ' + token
+                },
+                success: function() {
+                    alert('Contacto eliminado.');
+                    cargarContactos();
+                },
+                error: function(xhr) {
+                    alert('Error al eliminar contacto.');
+                    console.error(xhr.responseText);
+                }
+            });
+        }
+    });
+
+        //Sección de cerrar el modal    
+            $(document).on('click', '#closeViewBtn', function() {
+            $('#contactModal').hide();
+            $('#viewContent').hide();
+            $('#contactForm').hide();
+            $('#contactForm')[0].reset();
+            $('#contactId').val('');
             
-            // Aquí deberías actualizar la lista de contactos
-            if (isEdit) {
-                updateContactInTable(formData);
-            } else {
-                addContactToTable(formData);
-            }
-        }, 1000);
+            });
+
+            $(document).on('click', '.close-modal', function() {
+                $('#contactModal').hide();
+                $('#viewContent').hide();
+                $('#contactForm').hide();
+                $('#contactForm')[0].reset();
+                $('#contactId').val('');
+            
+            });
+
+            $(document).on('click', '#cancelBtn', function() {
+                $('#contactModal').hide();
+                $('#viewContent').hide();
+                $('#contactForm').hide();
+                $('#contactForm')[0].reset();
+                $('#contactId').val('');
+            
+            });
+
+    // Botón para editar desde la vista de detalles
+    $('#editViewBtn').on('click', function(e) {
+        e.preventDefault();
+        $('#viewContent').hide();
+        $('#contactForm').show();
+        $('#modalTitle').text('Editar Contacto');
     });
 
-    // Función para abrir en modo edición
-    window.openEditModal = function(contactData) {
-        modalTitle.textContent = 'Editar Contacto';
-        contactForm.style.display = 'block';
-        viewContent.style.display = 'none';
-        
-        contactIdInput.value = contactData.id || '';
-        contactAlias.value = contactData.alias || '';
-        contactAccount.value = contactData.account || '';
-        contactDescription.value = contactData.description || '';
-        
-        // Guardar los datos actuales
-        currentContactData = contactData;
-        
-        openModal();
-    };
-
-    // Función para abrir en modo vista
-    window.openViewModal = function(contactData) {
-        modalTitle.textContent = 'Detalles del Contacto';
-        contactForm.style.display = 'none';
-        viewContent.style.display = 'block';
-        
-        // Guardar los datos del contacto actual
-        currentContactData = contactData;
-        
-        viewAlias.textContent = contactData.alias || 'No especificado';
-        viewAccount.textContent = contactData.account || 'No especificado';
-        viewDescription.textContent = contactData.description || 'No especificado';
-        viewDate.textContent = formatDate(contactData.date) || 'No especificado';
-        
-        openModal();
-    };
-
-    // Evento para el botón de editar en la vista
-    editViewBtn?.addEventListener('click', function() {
-        if (currentContactData) {
-            openEditModal(currentContactData);
-        }
-    });
-
-    // Funciones auxiliares
-    function validateContactForm(data) {
-        if (!data.alias || data.alias.length < 3) {
-            alert('El alias debe tener al menos 3 caracteres');
-            return false;
-        }
-        
-        if (!data.account || data.account.length < 10) {
-            alert('El número de cuenta debe tener al menos 10 dígitos');
-            return false;
-        }
-        
-        if (!data.description || data.description.length < 5) {
-            alert('La descripción debe tener al menos 5 caracteres');
-            return false;
-        }
-        
-        return true;
-    }
-
-    function formatDate(dateString) {
-        if (!dateString) return 'No especificado';
-        
-        const options = { 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric', 
-            hour: '2-digit', 
-            minute: '2-digit' 
-        };
-        
-        try {
-            return new Date(dateString).toLocaleDateString('es-ES', options);
-        } catch (e) {
-            return dateString;
-        }
-    }
-
-    // Función para agregar contacto a la tabla
-    function addContactToTable(contactData) {
-        const tbody = document.querySelector('.contacts-table tbody');
-        const newRow = document.createElement('tr');
-        newRow.dataset.id = Date.now(); // ID temporal
-        newRow.dataset.date = contactData.date;
-        
-        newRow.innerHTML = `
-            <td>${contactData.alias}</td>
-            <td>${contactData.account}</td>
-            <td>${contactData.description}</td>
-            <td class="contact-actions">
-                <button class="btn-action btn-view" title="Ver"><i class="fas fa-eye"></i></button>
-                <button class="btn-action btn-delete" title="Eliminar"><i class="fas fa-trash"></i></button>
-            </td>
-`;
-        
-        tbody.appendChild(newRow);
-        addRowEventListeners(newRow);
-    }
-
-    // Función para actualizar contacto en la tabla
-    function updateContactInTable(contactData) {
-        const row = document.querySelector(`tr[data-id="${contactData.id}"]`);
-        if (row) {
-            row.cells[0].textContent = contactData.alias;
-            row.cells[1].textContent = contactData.account;
-            row.cells[2].textContent = contactData.description;
-        }
-    }
-
-    // Asignar eventos a las filas de la tabla
-    function addRowEventListeners(row) {
-        // Botón Ver
-        row.querySelector('.btn-view').addEventListener('click', function() {
-            const contactData = {
-                id: row.dataset.id,
-                alias: row.cells[0].textContent,
-                account: row.cells[1].textContent,
-                description: row.cells[2].textContent,
-                date: row.dataset.date
-            };
-            openViewModal(contactData);
-        });
-        
-        // Botón Eliminar
-        row.querySelector('.btn-delete').addEventListener('click', function() {
-            if (confirm('¿Estás seguro de que deseas eliminar este contacto?')) {
-                row.remove();
-                alert('Contacto eliminado correctamente');
+    // También asegúrate de que al hacer click en "Ver" se rellene el formulario oculto:
+    $(document).on('click', '.view-btn', function() {
+        const id = $(this).data('id');
+        $.ajax({
+            url: `http://localhost:3000/v1/client/contact/${id}`,
+            type: 'GET',
+            headers: {
+                'Authorization': 'Bearer ' + token
+            },
+            success: function(response) {
+                const contact = response.data;
+                $('#viewAlias').text(contact.alias || '');
+                $('#viewAccount').text(contact.account_number || '');
+                $('#viewDescription').text(contact.description || '');
+                $('#viewDate').text(contact.created_at ? new Date(contact.created_at).toLocaleString('es-VE') : '');
+                // Rellenar el formulario para edición
+                $('#contactId').val(contact.id);
+                $('#contactAlias').val(contact.alias);
+                $('#contactAccountNumber').val(contact.account_number);
+                $('#contactDescription').val(contact.description || '');
+                $('#contactModal').show();
+                $('#contactForm').hide();
+                $('#viewContent').show();
+            },
+            error: function(xhr) {
+                alert('No se pudo cargar el contacto.');
+                console.error(xhr.responseText);
             }
         });
-    }
-
-    // Asignar eventos a las filas existentes
-    document.querySelectorAll('.contacts-table tbody tr').forEach(row => {
-        addRowEventListeners(row);
     });
-});
-
-// Funciones globales para cerrar el modal
-function closeModal() {
-    const modal = document.getElementById('contactModal');
-    modal.classList.add('closing');
-    
-    setTimeout(() => {
-        modal.style.display = 'none';
-        modal.classList.remove('closing');
-        document.body.style.overflow = 'auto';
-    }, 200);
-}
-
-document.querySelector('.close-modal')?.addEventListener('click', closeModal);
-
-document.getElementById('contactModal')?.addEventListener('click', function(e) {
-    if (e.target === this) {
-        closeModal();
-    }
 });
