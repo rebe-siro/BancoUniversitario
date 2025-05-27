@@ -27,25 +27,8 @@
                         <th>Acciones</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr data-id="1" data-date="2025-05-20T10:30:00Z">
-                        <td>Miller Arias</td>
-                        <td>34667890123456789012</td>
-                        <td>Le encantan los Napolitanos</td>
-                        <td class="contact-actions">
-                            <button class="btn-action btn-view" title="Ver"><i class="fas fa-eye"></i></button>
-                            <button class="btn-action btn-delete" title="Eliminar"><i class="fas fa-trash"></i></button>
-                        </td>
-                    </tr>
-                    <tr data-id="2" data-date="2025-05-21T14:15:00Z">
-                        <td>Leonardo DiCaprio</td>
-                        <td>45678901234567890123</td>
-                        <td>El lobo de PDVSA</td>
-                        <td class="contact-actions">
-                            <button class="btn-action btn-view" title="Ver"><i class="fas fa-eye"></i></button>
-                            <button class="btn-action btn-delete" title="Eliminar"><i class="fas fa-trash"></i></button>
-                        </td>
-                    </tr>
+                <tbody id="contacts-body">
+                    <!--Aquí se llenan los contactos-->
                 </tbody>
             </table>
             
@@ -70,15 +53,14 @@
                                 <input type="text" id="contactAlias" name="alias" required>
                             </div>
                             <div class="form-group">
-                                <label for="contactAccount">Número de Cuenta</label>
-                                <input type="text" id="contactAccount" name="account" required>
+                                <label for="contactAccountNumber">Número de Cuenta</label>
+                                <input type="text" id="contactAccountNumber" name="account_number" required>
                             </div>
                             <div class="form-group">
                                 <label for="contactDescription">Descripción</label>
-                                <textarea id="contactDescription" name="description" required></textarea>
+                                <textarea id="contactDescription" name="description"></textarea>
                             </div>
                             <input type="hidden" id="contactId">
-                            
                             <div class="modal-actions">
                                 <button type="button" class="btn btn-secondary" id="cancelBtn">Cancelar</button>
                                 <button type="submit" class="btn btn-primary" id="submitBtn">Guardar</button>
@@ -105,9 +87,7 @@
                             </div>
                             
                             <div class="modal-actions view-actions">
-                                <button class="btn-edit-view" id="editViewBtn">
-                                    <i class="fas fa-edit"></i> Editar
-                                </button>
+                                <button class="btn-edit-view">Editar</button>
                                 <button class="btn btn-secondary" id="closeViewBtn">Cerrar</button>
                             </div>
                         </div>
@@ -120,7 +100,7 @@
             <p>© 2025 Banco Universitario. Todos los derechos reservados.</p>
         </footer>
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="scriptMBanca.js"></script>
     <script src="include.js"></script>
     <script src="ContactosM.js"></script>

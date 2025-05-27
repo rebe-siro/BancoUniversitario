@@ -206,11 +206,11 @@ body {
 }
 
 .transactions-table th {
-    background-color: var(--table-header-bg);
+    background-color: var(--primary-color);
     padding: 1rem;
     text-align: left;
     font-weight: 600;
-    color: var(--primary-color);
+    color: var(--white);
     position: sticky;
     top: 0;
 }
@@ -578,7 +578,9 @@ body {
 
 .contact-actions {
     display: flex;
-    gap: 0.5rem;
+    gap: 10px;
+    justify-content: flex-start;
+    width: 100%;
 }
 
 .btn-action {
@@ -590,8 +592,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    width: 25px;
+    height: 25px;
 }
 
 .btn-view {
@@ -800,8 +802,9 @@ body {
 }
 
 .btn-secondary {
-    background-color: #ff000096;
-    color: #ffffff;
+    background-color: #e74c3c !important;
+    color: #fff !important;
+    border: none;
 }
 
 .btn-primary {
@@ -810,23 +813,35 @@ body {
 }
 
 .btn-edit-view {
-    padding: 12px 25px;
+    flex: 1 1 0;
+    min-width: 0;
+    margin-right: 10px; /* Espacio entre botones */
+    padding: 12px 0;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     font-weight: 500;
     transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background-color: #008188c4;
     color: #ffffff;
-    margin-left: auto;
+    width: 25%; /* Ocupa el 25% de la celda */
+    max-width: 60%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    
 }
 
 .btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.btn-danger {
+    background-color: #b9b9b9 !important;
+    color: #000000 !important;
+    border: none;
 }
 
 .btn-secondary:hover {
