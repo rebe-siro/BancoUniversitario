@@ -6,6 +6,30 @@
         return;
     }*/
 
+
+    // Obtener datos del usuario autenticado
+    $.ajax({
+        url: 'http://localhost:3000//v1/client/user/whoami',
+        type: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
+        success: function(response) {
+            const user = response.data || {};
+            $('.account-name').text(`Cuenta de ${user.first_name || ''} ${user.last_name || ''}`);
+            $('.account-number').text(`Número de cuenta: ${user.account_number || ''}`);
+            if (user.balance !== undefined) {
+                $('.balance-amount-value')
+                    .text(`$${parseFloat(user.balance).toLocaleString('es-VE')}`)
+                    .attr('data-real-balance', user.balance);
+            }
+        },
+        error: function(xhr) {
+            alert('No se pudo cargar la información del usuario.');
+            console.error(xhr.responseText);
+        }
+    });
+
     $.ajax({
         url: 'http://localhost:3000/v1/client/movement?page=1&page_size=20&multiplier=1',
         type: 'GET',
