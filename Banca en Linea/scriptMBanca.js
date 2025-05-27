@@ -1,10 +1,10 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
     const token = localStorage.getItem('token');
     if (!token) {
         alert('You must log in first.');
         window.location.href = '../Login.html';
         return;
-    }
+    }*/
 
 
     // Obtener datos del usuario autenticado
@@ -198,10 +198,3 @@ $(document).ready(function() {
         });
     });
 }); */
-
-
-
-
-
-
-
