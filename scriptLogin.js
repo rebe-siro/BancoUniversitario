@@ -4,13 +4,40 @@ function mostrarMensaje() {
 }
 
 
+// FUNCIONES LOGIN
+/*
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const usuario = document.getElementById('usuario').value;
+    const contrasena = document.getElementById('contrasena').value;
+  
+    if (usuario && contrasena) {
+      alert(`¡Bienvenido, ${usuario}!`);
+      // Redirigir a dashboard (simulado)
+      // window.location.href = "dashboard.html";
+    } else {
+      alert('Por favor, completa todos los campos.');
+    }
+
+    clear()
+  });
+  
+  // Opcional: Funcionalidad para "Olvidé contraseña" y "Registro"
+  document.getElementById('olvide-contrasena').addEventListener('click', function(e) {
+    e.preventDefault();
+    alert('Función en construcción: Recuperar contraseña');
+  });
+
+  function clear() {
+    document.getElementById('usuario').value = '';
+    document.getElementById('contrasena').value = '';
+}*/
+
 // FUNCIONES LOGINNN
 
 $(document).ready(function() {
     $('#loginForm').on('submit', function(e) {
         e.preventDefault();
-        localStorage.clear();
-
         const email = $('#email').val().trim();
         const password = $('#password').val();
 

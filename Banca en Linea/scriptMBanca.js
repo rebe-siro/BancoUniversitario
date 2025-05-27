@@ -6,6 +6,30 @@ $(document).ready(function() {
         return;
     }
 
+
+    // Obtener datos del usuario autenticado
+    $.ajax({
+        url: 'http://localhost:3000//v1/client/user/whoami',
+        type: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
+        success: function(response) {
+            const user = response.data || {};
+            $('.account-name').text(`Cuenta de ${user.first_name || ''} ${user.last_name || ''}`);
+            $('.account-number').text(`Número de cuenta: ${user.account_number || ''}`);
+            if (user.balance !== undefined) {
+                $('.balance-amount-value')
+                    .text(`$${parseFloat(user.balance).toLocaleString('es-VE')}`)
+                    .attr('data-real-balance', user.balance);
+            }
+        },
+        error: function(xhr) {
+            alert('No se pudo cargar la información del usuario.');
+            console.error(xhr.responseText);
+        }
+    });
+
     $.ajax({
         url: 'http://localhost:3000/v1/client/movement?page=1&page_size=20&multiplier=1',
         type: 'GET',
@@ -15,21 +39,21 @@ $(document).ready(function() {
         success: function(response) {
             const transactions = response.data || [];
             const $tbody = $('#transactions-body');
-            $tbody.empty();
+        $tbody.empty();
 
-            transactions.forEach(function(tx) {
-                const row = `
-                    <tr class="transaction">
-                        <td class="reference">${tx.id || ''}</td>
-                        <td class="description">${tx.description || ''}</td>
-                        <td class="date">${tx.created_at ? new Date(tx.created_at).toLocaleString('es-VE') : ''}</td>
-                        <td class="amount">${tx.amount !== undefined ? parseFloat(tx.amount).toLocaleString('es-VE') : ''}</td>
-                    </tr>
-                `;
-                $tbody.append(row);
-            });
+        transactions.forEach(function(tx) {
+            const row = `
+                <tr class="transaction">
+                    <td class="reference">${tx.id || ''}</td>
+                    <td class="description">${tx.description || ''}</td>
+                    <td class="date">${tx.created_at ? new Date(tx.created_at).toLocaleString('es-VE') : ''}</td>
+                    <td class="amount">${tx.amount !== undefined ? parseFloat(tx.amount).toLocaleString('es-VE') : ''}</td>
+                </tr>
+            `;
+            $tbody.append(row);
+        });
 
-            // Solo usa los datos del primer movimiento
+        // Muestra la información de la cuenta, si no la hay usa el LocalStorage al logearse
             let firstName = '';
             let lastName = '';
             let accountNumber = '';
@@ -41,6 +65,18 @@ $(document).ready(function() {
                 lastName = userTx.last_name || '';
                 accountNumber = userTx.account_number || '';
                 balance = userTx.balance !== undefined ? userTx.balance : '';
+
+                // Si firt_name o last_name no estan, los busca en el localStorage
+                if (!firstName) {
+                    firstName = localStorage.getItem('first_name') || '';
+                }
+                if (!lastName) {
+                    lastName = localStorage.getItem('last_name') || '';
+                }
+            } else {
+                // Si no hay transacciones, usa el localStorage
+                firstName = localStorage.getItem('first_name') || '';
+                lastName = localStorage.getItem('last_name') || '';
             }
 
             $('.account-name').text(`Cuenta de ${firstName} ${lastName}`);
@@ -55,7 +91,12 @@ $(document).ready(function() {
             alert('Could not load transactions.');
             console.error(xhr.responseText);
         }
+
     });
+
+    accountNumber = localStorage.getItem('account_number') || '';
+    firstName = localStorage.getItem('first_name') || '';
+    lastName = localStorage.getItem('last_name') || '';
 
     // Mostrar/Quitar Visibilidad del Balance
     $('#toggleBalance').on('click', function() {
@@ -74,7 +115,89 @@ $(document).ready(function() {
             $(this).find('i').removeClass('fa-lock').addClass('fa-unlock');
         }
     });
+
+    /*$.ajax({
+        url: 'http://localhost:3000/v1/client/me', // Change to your user/account info endpoint
+        type: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + token
+        },
+        success: function(response) {
+            const user = response.data || {};
+            //Actualizar la información de la cuenta
+            $('.account-name').text(`Cuenta of ${user.first_name || ''} ${user.last_name || ''}`);
+            $('.account-number').text(`Número de cuenta: ${user.account_number || ''}`);
+            //Actualizar el balance
+            if (user.balance !== undefined) {
+            $('.amount').text(`$${parseFloat(user.balance).toLocaleString('es-VE')}`);
+        }
+        },
+        error: function(xhr) {
+            console.error('Could not load user/account info:', xhr.responseText);
+        }
+    });*/
 });
+
+/*document.addEventListener('DOMContentLoaded', function() {
+    // Toggle para mostrar/ocultar el saldo
+    const toggleBalance = document.getElementById('toggleBalance');
+    const balanceAmount = document.querySelector('.amount');
+    const balanceIcon = toggleBalance.querySelector('i');
+    
+    toggleBalance.addEventListener('click', function() {
+        if (balanceAmount.textContent === '$*******') {
+            balanceAmount.textContent = '$12,345.67';
+            balanceIcon.classList.remove('fa-lock');
+            balanceIcon.classList.add('fa-unlock');
+        } else {
+            balanceAmount.textContent = '$*******';
+            balanceIcon.classList.remove('fa-unlock');
+            balanceIcon.classList.add('fa-lock');
+        }
+    });
+
+    // Filtrado de transacciones
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const transactions = document.querySelectorAll('.transaction');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            const filter = this.dataset.filter;
+            
+            transactions.forEach(transaction => {
+                if (filter === 'all') {
+                    transaction.style.display = '';
+                } else {
+                    if (transaction.dataset.type === filter) {
+                        transaction.style.display = '';
+                    } else {
+                        transaction.style.display = 'none';
+                    }
+                }
+            });
+        });
+    });
+
+    // Simular datos dinámicos 
+    function formatDate(date) {
+        const options = { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' };
+        return date.toLocaleDateString('es-MX', options).replace(',', '');
+    }
+
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => {
+        button.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+        });
+        
+        button.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+}); */
 
 
 
